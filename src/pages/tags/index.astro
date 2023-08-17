@@ -1,0 +1,17 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Tags from "@components/Tags.astro";
+import Profile from "@components/SideBar/Profile.astro";
+import SideBar from "@components/SideBar/SideBar.astro";
+import TagsCard from "@components/SideBar/TagsCard.astro";
+---
+
+<BaseLayout title="tags index">
+  <div class="main">
+    <Tags />
+  </div>
+  <SideBar>
+    <Profile />
+    <TagsCard />
+  </SideBar>
+</BaseLayout>

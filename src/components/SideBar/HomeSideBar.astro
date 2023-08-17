@@ -1,0 +1,53 @@
+---
+import { SITE_URL } from "@/consts";
+import Icon from "astro-icon";
+import Profile from "./Profile.astro";
+import TagsCard from "./TagsCard.astro";
+---
+
+<div class="sidebar">
+  <Profile />
+  <TagsCard />
+  <div class="search">
+    <form class="ddg" name="x" action="https://duckduckgo.com/" target="_blank">
+      <input type="hidden" value={SITE_URL} name="sites" />
+      <input type="search" placeholder="DuckDuckGo" name="q" />
+      <button class="button" type="submit" aria-label="Search">
+        <Icon name="ri:search-line" />
+      </button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .ddg {
+    display: grid;
+    grid-template-columns: 1fr 36px;
+    background-color: white;
+    border-radius: 40px;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .search input {
+    width: 100%;
+    border-style: none;
+    border-radius: 40px;
+    padding: 0.5rem;
+  }
+  .button {
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    border-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    color: #aaa;
+  }
+
+  .button:hover {
+    cursor: pointer;
+    color: #555;
+  }
+</style>

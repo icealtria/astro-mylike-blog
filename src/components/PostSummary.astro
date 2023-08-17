@@ -1,0 +1,90 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+const { title, description, heroImage, slug, pubDate } = Astro.props;
+---
+
+<div class="post-summary">
+  <a class:list={heroImage && "has-image"} href={`/blog/${slug}/`}>
+    <div class="info">
+      <h1 class="title">{title}</h1>
+      <p class="description">{description}</p>
+      <span class="date">
+        <FormattedDate date={pubDate} />
+      </span>
+    </div>
+    {heroImage && <img src={heroImage} alt={title} />}
+  </a>
+</div>
+
+<style>
+  .date {
+    font-size: 0.7em;
+    color: #222;
+    text-align: right;
+  }
+  .post-summary {
+    background-color: white;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.3s;
+  }
+
+  .post-summary a.has-image {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+  }
+
+  .post-summary img {
+    /* box-sizing: border-box; */
+    display: inline-block;
+    vertical-align: top;
+    width: 280px;
+    height: 160px;
+    margin: 0;
+    object-fit: cover;
+    /* transition: border-radius 0.3s; */
+  }
+
+  .info {
+    vertical-align: top;
+    box-sizing: border-box;
+    padding: 0.7rem 1.5rem;
+    position: relative;
+  }
+
+  @media screen and (max-width: 800px) {
+    .post-summary img {
+      display: none;
+    }
+
+    .post-summary a.has-image {
+      grid-template-columns: 1fr;
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    .post-summary {
+      padding: 1rem;
+    }
+  }
+
+  .post-summary h1 {
+    font-size: 1.6rem;
+    margin: 0;
+  }
+
+  .post-summary p {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .post-summary a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .post-summary:hover {
+    background-color: var(--md-sys-color-secondary-container);
+  }
+</style>

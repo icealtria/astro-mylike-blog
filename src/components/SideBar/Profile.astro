@@ -1,0 +1,66 @@
+---
+import SocialLink from "./SocialLink.astro";
+import SidebarCard from "./SidebarCard.astro";
+
+const avatar = "/images/avatar.webp";
+import { SITE } from "@/consts";
+---
+
+<SidebarCard>
+  <div class="profile-card">
+    <img src={avatar} alt="avatar" />
+    <div class="name">{SITE.author}</div>
+    <div class="description">{SITE.description}</div>
+    <div class="social-links">
+      <SocialLink
+        href="https://github.com/icealtria"
+        icon="ri:github-fill"
+        platform="Github"
+      />
+      <SocialLink
+        href="https://mastodon.social/@icealtria"
+        icon="ri:mastodon-fill"
+        platform="Mastodon"
+      />
+      <SocialLink
+        href="mailto:icealtria@example.com"
+        icon="mdi:mail"
+        platform="Email"
+      />
+      <SocialLink
+        href="https://t.me/durov"
+        icon="mdi:telegram"
+        platform="Telegram"
+      />
+    </div>
+  </div>
+</SidebarCard>
+
+<style>
+  img {
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 50%;
+    transition: transform 1s cubic-bezier(0.275, 0.82, 0.265, 1);
+  }
+
+  img:hover {
+    transform: rotate(360deg);
+  }
+  .social-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2px;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .name {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  .description {
+    font-size: 0.85em;
+  }
+</style>

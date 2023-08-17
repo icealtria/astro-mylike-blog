@@ -1,0 +1,56 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SideBar from "@components/SideBar/SideBar.astro";
+import FriendCard from "@components/FriendCard.astro";
+import SidebarCard from "@/components/SideBar/SidebarCard.astro";
+---
+
+<BaseLayout title="友情链接">
+  <SideBar>
+    <SidebarCard>
+      <h1>喵喵 ~</h1>
+      <p>Owo</p>
+    </SidebarCard>
+  </SideBar>
+  <div class="main">
+    <div class="friends">
+      <FriendCard
+        avatar="images/avatar.webp"
+        name="icealtria"
+        url="https://github.com/icealtria"
+        desc="谋杀一个午觉就是犯罪！ 午觉使人复活！"
+      />
+      <FriendCard
+        avatar="images/avatar.webp"
+        name="icealtria"
+        url="https://github.com/icealtria"
+        desc="谋杀一个午觉就是犯罪！ 午觉使人复活！"
+      />
+      <FriendCard
+        avatar="images/avatar.webp"
+        name="icealtria"
+        url="https://github.com/icealtria"
+        desc="谋杀一个午觉就是犯罪！ 午觉使人复活！"
+      />
+      <FriendCard
+        avatar="images/avatar.webp"
+        name="icealtria"
+        url="https://github.com/icealtria"
+        desc="谋杀一个午觉就是犯罪！ 午觉使人复活！"
+      />
+    </div>
+  </div>
+</BaseLayout>
+<style>
+  .friends {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.5rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .friends {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

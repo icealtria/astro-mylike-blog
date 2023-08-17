@@ -1,0 +1,39 @@
+---
+import PostSummary from "./PostSummary.astro";
+export interface Props {
+  posts: {
+    id: string;
+    slug: string;
+    body: string;
+    collection: "blog";
+    data: {
+      title: string;
+      description: string;
+      pubDate: Date;
+      updatedDate?: Date | undefined;
+      heroImage?: string | undefined;
+      tags?: string[] | undefined;
+      draft?: boolean | undefined;
+    };
+  }[];
+}
+const { posts } = Astro.props;
+---
+
+<div class="post-list">
+  <ul>
+    {
+      posts.map((post) => (
+        <li>
+          <PostSummary
+            title={post.data.title}
+            description={post.data.description}
+            slug={post.slug}
+            pubDate={post.data.pubDate}
+            heroImage={post.data.heroImage}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</div>
