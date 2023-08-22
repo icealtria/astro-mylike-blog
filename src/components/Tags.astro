@@ -2,15 +2,15 @@
 import { getTagsInfo } from "@/scripts/tags";
 import HyperlinkSmall from "./Hyperlink/HyperlinkSmall.astro";
 const tags = Array.from(getTagsInfo())
-  .sort((a, b) => b[1] - a[1])
-  .map(([tag, _count]) => tag);
+  .sort((a, b) => b[1] - a[1]);
+
 ---
 
 <h1>标签</h1>
 <div class="tags">
   {
-    tags.map((tag) => (
-      <HyperlinkSmall href={`/tags/${tag}`}>{tag}</HyperlinkSmall>
+    tags.map(([tag , count]) => (
+      <HyperlinkSmall href={`/tags/${tag}`}>{tag}</HyperlinkSmall><span class="count">{count}</span>
     ))
   }
 </div>
@@ -23,5 +23,9 @@ const tags = Array.from(getTagsInfo())
   .tags {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .count {
+    display: none;
   }
 </style>
