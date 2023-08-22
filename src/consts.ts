@@ -12,3 +12,21 @@ export const SITE = {
     author: AUTHOR,
     postPerPage: 5,
 }
+
+export const COLORS = {
+    brown : {
+        background : "#fff8f5",
+        primary : "#d7b498",
+        secondary : "#f7e3d4",
+    },
+    red: {
+        background : "#fff8f7",
+        primary : "#ff7161",
+        secondary : "#ffaca1",
+    },
+    purple: {
+        background : "#fff7fa",
+        primary : "#e794e8",
+        secondary : "#ffd8fa",
+    }
+}

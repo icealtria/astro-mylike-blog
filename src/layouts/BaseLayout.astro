@@ -2,8 +2,12 @@
 import BaseHead from "@components/BaseHead.astro";
 import Header from "@components/Header/Header.astro";
 import Footer from "@components/Footer.astro";
-import { SITE_DESCRIPTION } from "../consts";
+import { SITE_DESCRIPTION, COLORS } from "../consts";
 const { title } = Astro.props;
+const color = COLORS.brown;
+const background = color.background;
+const primary = color.primary;
+const secondary = color.secondary;
 ---
 
 <!DOCTYPE html>
@@ -19,3 +23,12 @@ const { title } = Astro.props;
     <Footer />
   </body>
 </html>
+
+<style is:global define:vars={{color, background, primary, secondary}}>
+:root,
+:host {
+	--md-sys-color-background: var(--background);
+	--md-sys-color-primary-container: var(--primary);
+	--md-sys-color-secondary-container: var(--secondary);
+}
+</style>

@@ -4,28 +4,6 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
-:root,
-:host {
-	--md-sys-color-background: #fff8f5;
-	--md-sys-color-primary-container: #d7b498;
-	--md-sys-color-secondary-container: #f7e3d4;
-
-}
-
-/* :root,
-:host {
-	--md-sys-color-background: #fff8f7;
-	--md-sys-color-primary-container: #ff7161;
-	--md-sys-color-secondary-container: #ffaca1;
-} */
-
-/* :root,
-:host {
-	--md-sys-color-background: #fff7fa;
-	--md-sys-color-primary-container: #e794e8;
-	--md-sys-color-secondary-container: #ffd8fa;
-} */
-
 body {
 	font-family: "Noto Sans SC", "Noto Sans SC", "Noto Sans CJK SC", sans-serif;
 	margin: 0;
