@@ -5,76 +5,71 @@ import Footer from "@components/Footer.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import NavBar from "@components/Header/NavBar.astro";
 import "@/styles/article.css";
+import Layout from "./Layout.astro";
 type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage, tags } =
   Astro.props;
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={title} description={description} />
-  </head>
-  <body>
-    <NavBar />
-    <main>
-      <article>
-        <div class="prose">
-          <div class="title">
-            <h1>{title}</h1>
-            <hr />
-            <div class="metadata">
-              <FormattedDate date={pubDate} />
-            </div>
+<Layout title={title} description={description}>
+  <main>
+    <article>
+      <div class="prose">
+        <div class="title">
+          <h1>{title}</h1>
+          <hr />
+          <div class="metadata">
+            <FormattedDate date={pubDate} />
           </div>
-          <slot />
         </div>
-      </article>
-    </main>
-    <Footer />
-    <style>
-      main {
-        max-width: 100%;
-        margin: 0;
-      }
-      .hero-image {
-        width: 100%;
-      }
-      .hero-image img {
-        display: block;
-        margin: 0 auto;
-        border-radius: 12px;
-        box-shadow: var(--box-shadow);
-      }
-      .prose {
-        box-sizing: border-box;
-        max-width: 960px;
-        margin: auto;
-        padding: 4.5rem;
-        background-color: white;
-      }
-      .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
-      }
-      .title h1 {
-        margin: 0 0 0.5em 0;
-      }
-      .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
-      }
-      .last-updated-on {
-        font-style: italic;
-      }
+        <slot />
+      </div>
+    </article>
+  </main>
+</Layout>
 
-      @media (max-width: 800px) {
-        .prose {
-          padding: 1.5rem;
-        }
-      }
-    </style>
-  </body>
-</html>
+<style>
+  main {
+    max-width: 100%;
+    margin: 0;
+  }
+  .hero-image {
+    width: 100%;
+  }
+  .hero-image img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+  }
+  .prose {
+    box-sizing: border-box;
+    max-width: 960px;
+    margin: auto;
+    padding: 4.5rem;
+    background-color: white;
+  }
+  .title {
+    margin-bottom: 1em;
+    padding: 1em 0;
+    text-align: center;
+    line-height: 1;
+  }
+  .title h1 {
+    margin: 0 0 0.5em 0;
+  }
+  .date {
+    margin-bottom: 0.5em;
+    color: rgb(var(--gray));
+  }
+  .last-updated-on {
+    font-style: italic;
+  }
+
+  @media (max-width: 800px) {
+    .prose {
+      padding: 1.5rem;
+    }
+  }
+</style>

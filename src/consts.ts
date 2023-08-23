@@ -3,7 +3,7 @@
 
 export const SITE_TITLE = "Rin's Blog";
 export const SITE_DESCRIPTION = '谋杀一个午觉就是犯罪！ 午觉使人复活！';
-export const SITE_URL = 'https://127.0.0.1:3000';
+export const SITE_URL = 'https://mylike-blog.vercel.app';
 export const AUTHOR = 'Rin';
 export const SITE = {
     url: SITE_URL,
