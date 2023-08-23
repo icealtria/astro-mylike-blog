@@ -1,5 +1,5 @@
 ---
-import { SITE_URL } from "@/consts";
+import { SITE } from "@/consts";
 import Icon from "astro-icon";
 import Profile from "./Profile.astro";
 import TagsCard from "./TagsCard.astro";
@@ -10,7 +10,7 @@ import TagsCard from "./TagsCard.astro";
   <TagsCard />
   <div class="search">
     <form class="ddg" name="x" action="https://duckduckgo.com/" target="_blank">
-      <input type="hidden" value={SITE_URL} name="sites" />
+      <input type="hidden" value={SITE.url} name="sites" />
       <input type="search" placeholder="DuckDuckGo" name="q" />
       <button class="button" type="submit" aria-label="Search">
         <Icon name="ri:search-line" />
