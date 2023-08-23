@@ -2,7 +2,7 @@
 title: 'First post'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 08 2020'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/blog-placeholder-3.webp'
 tags: ["astro", "first", "exemple"]
 ---
 
