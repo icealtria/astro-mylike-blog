@@ -11,9 +11,10 @@ export async function getStaticPaths({ paginate }) {
   return paginate(posts, { pageSize: SITE.postPerPage });
 }
 const { page } = Astro.props;
+console.log(page.description)
 ---
 
-<Home title={page.currentPage} description={page.description}>
+<Home title={`第${page.currentPage}页 - ${SITE.title}`} description={SITE.description}>
   <ul>
     {
       page.data.map((post) => (
@@ -33,14 +34,14 @@ const { page } = Astro.props;
     <div class="prev">
       {
         page.url.prev ? (
-          <HeaderLink href={page.url.prev}>Previous</HeaderLink>
+          <HeaderLink href={page.url.prev}>上一页</HeaderLink>
         ) : null
       }
     </div>
     <div class="next">
       {
         page.url.next ? (
-          <HeaderLink href={page.url.next}>Next</HeaderLink>
+          <HeaderLink href={page.url.next}>下一页</HeaderLink>
         ) : null
       }
     </div>
