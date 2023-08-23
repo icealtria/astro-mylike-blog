@@ -1,20 +1,36 @@
 ---
 import { getTagsInfo } from "@/scripts/tags";
-import HyperlinkSmall from "./Hyperlink/HyperlinkSmall.astro";
-const tags = Array.from(getTagsInfo())
-  .sort((a, b) => b[1] - a[1]);
-
+const tags = Array.from(getTagsInfo()).sort((a, b) => b[1] - a[1]);
 ---
 
 <h1>标签</h1>
 <div class="tags">
   {
-    tags.map(([tag , count]) => (
-      <HyperlinkSmall href={`/tags/${tag}`}>{tag}</HyperlinkSmall><span class="count">{count}</span>
+    tags.map(([tag, count]) => (
+      <>
+        <a class="tag" href={`/tags/${tag}`}>
+          {tag}
+        </a>
+        <span class="count">{count}</span>
+      </>
     ))
   }
 </div>
-<style>
+<style is:inline>
+  .tag {
+    transition: background-color 0.3s;
+    border-radius: 40px;
+    padding: 0 0.5rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .tag:hover {
+    background-color: #eeeeee;
+  }
+
   h1 {
     font-size: 1.3rem;
     margin: 0 0 1rem;

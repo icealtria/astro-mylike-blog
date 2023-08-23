@@ -16,7 +16,7 @@ const { title, description, heroImage, slug, pubDate } = Astro.props;
   </a>
 </div>
 
-<style>
+<style is:inline>
   .date {
     font-size: 0.7em;
     color: #222;
@@ -59,14 +59,6 @@ const { title, description, heroImage, slug, pubDate } = Astro.props;
     .post-summary a.has-image {
       grid-template-columns: 1fr;
     }
-
-    ul {
-      padding: 0;
-    }
-
-    .post-summary {
-      padding: 1rem;
-    }
   }
 
   .post-summary h1 {
@@ -85,6 +77,6 @@ const { title, description, heroImage, slug, pubDate } = Astro.props;
   }
 
   .post-summary:hover {
-    background-color: var(--md-sys-color-secondary-container);
+    background-color: var(--color-secondary-container);
   }
 </style>

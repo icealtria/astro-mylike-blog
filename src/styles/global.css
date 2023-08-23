@@ -9,7 +9,7 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background-color: var(--md-sys-color-background);
+	background-color: var(--color-background);
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -24,6 +24,7 @@ body {
 	grid-gap: .5rem;
 	max-width: 1200px;
 	margin: 0 auto;
+	padding: 0 .5rem;
 }
 
 .sidebar {
@@ -63,24 +64,12 @@ nav {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	padding: 8px;
+	margin: 8px;
 	gap: 16px;
 }
 
-@media screen and (max-width: 800px) {
-	nav {
-		font-size: 16px;
-		padding: 4px;
-		gap: 4px;
-	}
-}
-
-nav a {
-	padding: 8px 24px;
-}
-
 .pagination {
-	padding-top: 4px;
+	padding: 4px 0;
 	display: flex;
 }
 
@@ -95,10 +84,22 @@ nav a {
 nav a,
 .pagination a {
 	text-decoration: none;
-	padding: 8px 16px;
+	padding: .3rem 16px;
 	color: black;
 	border-radius: 40px;
 	transition: background-color 0.3s;
+}
+
+.header-link:hover,
+.header-link.active {
+	background-color: var(--color-secondary-container);
+}
+
+.sidebar-card {
+	background-color: white;
+	padding: 1.5rem;
+	text-align: center;
+	margin-bottom: 0.5rem;
 }
 
 .prose,

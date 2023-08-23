@@ -5,7 +5,6 @@ pubDate: 'Jul 01 2023'
 heroImage: '/blog-placeholder-1.webp'
 tags: ["markdown", "guideline"]
 ---
-## Table of contents
 
 以下是在 Astro 中编写 Markdown 内容时可以使用的一些基本 Markdown 语法的示例。
 
