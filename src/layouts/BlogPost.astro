@@ -1,30 +1,37 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import BaseHead from "@components/BaseHead.astro";
-import Footer from "@components/Footer.astro";
 import FormattedDate from "@components/FormattedDate.astro";
-import NavBar from "@components/Header/NavBar.astro";
 import "@/styles/article.css";
 import Layout from "./Layout.astro";
+import toc from "markdown-toc";
+import { marked } from "marked";
+
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage, tags } =
-  Astro.props;
+const { post } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } = post.data;
+const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
 ---
 
 <Layout title={title} description={description}>
-  <main>
+  <main id="main">
     <article>
-      <div class="prose">
-        <div class="title">
-          <h1>{title}</h1>
-          <hr />
-          <div class="metadata">
-            <FormattedDate date={pubDate} />
-          </div>
+      <div class="title">
+        <h1>{title}</h1>
+        <hr />
+        <div class="metadata">
+          <FormattedDate date={pubDate} />
         </div>
-        <slot />
       </div>
+      {
+        toc_html && (
+          <details>
+            <summary>目录</summary>
+            <div class="toc" set:html={toc_html} />
+          </details>
+        )
+      }
+      <slot name="content" />
     </article>
   </main>
 </Layout>
@@ -32,7 +39,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
 <style>
   main {
     max-width: 100%;
-    margin: 0;
+    padding: 0 8px;
   }
   .hero-image {
     width: 100%;
@@ -43,7 +50,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
     border-radius: 12px;
     box-shadow: var(--box-shadow);
   }
-  .prose {
+  article {
     box-sizing: border-box;
     max-width: 960px;
     margin: auto;
@@ -66,9 +73,8 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
   .last-updated-on {
     font-style: italic;
   }
-
   @media (max-width: 800px) {
-    .prose {
+    article {
       padding: 1.5rem;
     }
   }

@@ -4,6 +4,7 @@ import PostSummary from "@components/PostSummary.astro";
 import HeaderLink from "@/components/Header/HeaderLink.astro";
 import Home from "@/layouts/Home.astro";
 import { SITE } from "@/consts";
+import PostList from "@/components/PostList.astro";
 export async function getStaticPaths({ paginate }) {
   const _post = posts.sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -11,25 +12,14 @@ export async function getStaticPaths({ paginate }) {
   return paginate(posts, { pageSize: SITE.postPerPage });
 }
 const { page } = Astro.props;
-console.log(page.description)
+console.log(page.description);
 ---
 
-<Home title={`第${page.currentPage}页 - ${SITE.title}`} description={SITE.description}>
-  <ul>
-    {
-      page.data.map((post) => (
-        <li>
-          <PostSummary
-            title={post.data.title}
-            description={post.data.description}
-            slug={post.slug}
-            pubDate={post.data.pubDate}
-            heroImage={post.data.heroImage}
-          />
-        </li>
-      ))
-    }
-  </ul>
+<Home
+  title={`第${page.currentPage}页 - ${SITE.title}`}
+  description={SITE.description}
+>
+  <PostList posts={page.data} />
   <div class="pagination">
     <div class="prev">
       {
@@ -47,11 +37,3 @@ console.log(page.description)
     </div>
   </div>
 </Home>
-
-<style>
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0rem;
-  }
-</style>
