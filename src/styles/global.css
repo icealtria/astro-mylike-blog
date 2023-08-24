@@ -16,6 +16,7 @@ body {
 	font-size: 20px;
 	line-height: 1.7;
 	text-rendering: optimizeSpeed;
+	width: 100vw;
 }
 
 .container {
@@ -133,4 +134,9 @@ h5 {
 
 h6 {
 	font-size: 1.0rem;
+}
+
+footer {
+	padding: 2em 1em 6em 1em;
+	text-align: center;
 }

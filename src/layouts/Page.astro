@@ -1,0 +1,21 @@
+---
+const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
+import Layout from "./Layout.astro";
+import "@/styles/article.css";
+import FormattedDate from "@components/FormattedDate.astro";
+---
+
+<Layout title={title} description={description}>
+    <main id="main">
+      <article>
+        <div class="title">
+          <h1>{title}</h1>
+          <hr />
+          <div class="metadata">
+            <FormattedDate date={pubDate} />
+          </div>
+        </div>
+        <slot />
+      </article>
+    </main>
+</Layout>

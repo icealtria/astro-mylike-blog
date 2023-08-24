@@ -2,37 +2,10 @@
 const { name, url, avatar, desc } = Astro.props;
 ---
 
-<!-- <div class="friend-card"> -->
-<a class="friend-card" href="{url}">
+<a class="friend-card" href={url}>
   <img src={avatar} alt="avatar" />
   <div class="friend-content">
     <div class="name">{name}</div>
     <div class="description">{desc}</div>
   </div>
 </a>
-<!-- </div> -->
-<style>
-  .friend-card {
-    background-color: white;
-    padding: 1.5rem;
-    font-size: 16px;
-    text-decoration: none;
-    color: black;
-    transition: 0.3s;
-    text-align: center;
-  }
-  .friend-card img {
-    width: 6.5rem;
-    height: 6.5rem;
-    border-radius: 50%;
-    align-items: ;
-    margin: 0 auto;
-  }
-  .friend-card:hover {
-    background-color: var(--color-secondary-container);
-  }
-  .name {
-    font-weight: bold;
-    font-size: 1.8rem;
-  }
-</style>
