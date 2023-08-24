@@ -15,6 +15,7 @@ import PostList from "@/components/PostList.astro";
 const filtered_posts = posts.filter((post) => {
   return post.data.tags?.includes(tag);
 });
+import "@/styles/home.css"
 ---
 
 <BaseLayout title={`标签: ${tag}`}>
