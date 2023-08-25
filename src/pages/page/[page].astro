@@ -1,22 +1,17 @@
 ---
 import { posts } from "@/scripts/collection-workaround";
-import PostSummary from "@components/PostSummary.astro";
 import HeaderLink from "@/components/Header/HeaderLink.astro";
 import Home from "@/layouts/Home.astro";
 import { SITE } from "@/consts";
 import PostList from "@/components/PostList.astro";
 export async function getStaticPaths({ paginate }) {
-  const _post = posts.sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-  );
   return paginate(posts, { pageSize: SITE.postPerPage });
 }
 const { page } = Astro.props;
-console.log(page.description);
 ---
 
 <Home
-  title={`第${page.currentPage}页 - ${SITE.title}`}
+  title={`第 ${page.currentPage} 页 - ${SITE.title}`}
   description={SITE.description}
 >
   <PostList posts={page.data} />
