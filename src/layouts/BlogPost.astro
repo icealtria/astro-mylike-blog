@@ -1,15 +1,15 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import FormattedDate from "@components/FormattedDate.astro";
 import "@/styles/article.css";
 import Layout from "./Layout.astro";
 import toc from "markdown-toc";
 import { marked } from "marked";
+import ArticleInfo from "@/components/ArticleInfo.astro";
+import Icon from "astro-icon";
 
 type Props = CollectionEntry<"blog">["data"];
-
 const { post } = Astro.props;
-const { title, description, pubDate, updatedDate, heroImage, tags } = post.data;
+const { title, description, heroImage, tags } = post.data;
 const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
 ---
 
@@ -18,10 +18,7 @@ const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
     <article>
       <div class="title">
         <h1>{title}</h1>
-        <hr />
-        <div class="metadata">
-          <FormattedDate date={pubDate} />
-        </div>
+        <!-- <hr /> -->
       </div>
       {
         toc_html && (
@@ -32,6 +29,20 @@ const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
         )
       }
       <slot name="content" />
+      <hr>
+      <ArticleInfo slug={post.slug} {...post.data} />
+      {
+        tags && (
+          <div class="tags">
+            <Icon name="ri:hashtag" />
+            {tags.map((tag) => (
+              <a class="tag" href={`/tags/${tag}`}>
+                {tag}
+              </a>
+            ))}
+          </div>
+        )
+      }
     </article>
   </main>
 </Layout>

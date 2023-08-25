@@ -96,20 +96,34 @@ nav a,
 	background-color: var(--color-secondary-container);
 }
 
-.sidebar-card {
+.card {
 	background-color: white;
 	padding: 1.5rem;
-	text-align: center;
 	margin-bottom: 0.5rem;
+	border-radius: var(--border-radius);
+
 }
 
-article,
-.post-summary,
-.post-summary img,
-.friend-card,
-.sidebar-card,
+.sidebar-card {
+	text-align: center;
+}
+
+.tag {
+	display: inline-block;
+	transition: background-color 0.3s;
+	border-radius: var(--border-radius);
+	padding: 0 0.5rem;
+	font-size: 1.1rem;
+	text-decoration: none;
+	color: black;
+}
+
+.tag:hover {
+	background-color: #eee;
+}
+
 .main {
-	border-radius: 40px;
+	border-radius: var(--border-radius);
 }
 
 h1 {
