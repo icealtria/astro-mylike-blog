@@ -35,7 +35,7 @@ Xerum，我尝试由谁或如何解释谁在痛苦。当我来到你身边，当
 
 #### Output
 
-![blog placeholder](../../../blog-placeholder-about.jpg)
+![blog placeholder](/blog-placeholder-about.jpg)
 ## 块引用
 
 blockquote 元素表示从其他来源引用的内容，可选地带有必须位于`footer`或`cite`元素内的引文，并且可选地带有行内更改（例如注释和缩写）。
