@@ -11,7 +11,7 @@ const { href, icon, rel, platform } = Astro.props;
 import { Icon } from "astro-icon";
 ---
 
-<a class="social-link" href={href} rel={rel} target="_blank">
+<a class="social-link radius-40" href={href} rel={rel} target="_blank">
   <Icon name={icon} />
   <span class="platform">
     {platform}

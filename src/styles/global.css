@@ -16,8 +16,11 @@ body {
 	font-size: 20px;
 	line-height: 1.7;
 	text-rendering: optimizeSpeed;
-	width: 100vw;
 }
+
+html {
+	scrollbar-gutter: stable both-edges;
+ }
 
 .container {
 	display: grid;
@@ -57,7 +60,7 @@ body {
 .post-list ul {
 	list-style: none;
 	margin: 0;
-	padding: 0rem;
+	padding: 0;
 }
 
 nav {
@@ -82,12 +85,14 @@ nav {
 	margin-left: auto;
 }
 
+a {
+	color: black;
+}
+
 nav a,
 .pagination a {
 	text-decoration: none;
 	padding: .3rem 16px;
-	color: black;
-	border-radius: 40px;
 	transition: background-color 0.3s;
 }
 
@@ -97,11 +102,8 @@ nav a,
 }
 
 .card {
-	background-color: white;
 	padding: 1.5rem;
 	margin-bottom: 0.5rem;
-	border-radius: var(--border-radius);
-
 }
 
 .sidebar-card {
@@ -111,7 +113,7 @@ nav a,
 .tag {
 	display: inline-block;
 	transition: background-color 0.3s;
-	border-radius: var(--border-radius);
+	border-radius: 40px;
 	padding: 0 0.5rem;
 	font-size: 1.1rem;
 	text-decoration: none;
@@ -122,8 +124,12 @@ nav a,
 	background-color: #eee;
 }
 
-.main {
-	border-radius: var(--border-radius);
+.radius-40 {
+	border-radius: 40px;
+}
+
+.bg-w {
+	background-color: white;
 }
 
 h1 {

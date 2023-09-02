@@ -1,9 +1,10 @@
 ---
 import { SITE } from "../consts";
 const today = new Date();
+import Icon from "astro-icon";
 ---
 
 <footer>
   Copyright &copy; {today.getFullYear()}
-  {SITE.author}
+  {SITE.author} | <a href="/atom.xml">RSS</a>
 </footer>

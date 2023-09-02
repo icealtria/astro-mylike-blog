@@ -1,10 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "@layouts/BaseLayout.astro";
-import SideBar from "@components/SideBar/SideBar.astro";
-import SidebarCard from "@components/SideBar/SidebarCard.astro";
+import Layout from "@layouts/Layout.astro";
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 let prev_year = 0;
 let years: number[] = [];
@@ -22,38 +20,25 @@ let sorted_posts = posts.map((post) => {
 });
 ---
 
-<BaseLayout title="Archive">
-  <SideBar>
-    <SidebarCard>
-      <div class="index">
-        <ul>
-          {
-            years.map((y) => (
-              <li>
-                <a href={`#${y}`}>{y}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </SidebarCard>
-  </SideBar>
-  <div class="main" style="background-color: white;">
+<Layout title="Archive">
+  <div class="container radius-40 bg-w">
     <ul>
       {
         sorted_posts.map((post) => (
           <>
-            {post.isAnotherYear && (
-              <h2 id={post.data.pubDate.getFullYear()}>
-                {post.data.pubDate.getFullYear()}
-              </h1>
-            )}
-              <li>
-                <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-              </li>
+            {post.isAnotherYear && <h2>{post.data.pubDate.getFullYear()}</h2>}
+            <li>
+              <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+            </li>
           </>
         ))
       }
     </ul>
   </div>
-</BaseLayout>
+</Layout>
+
+<style>
+  .container {
+    max-width: 800px;
+  }
+</style>

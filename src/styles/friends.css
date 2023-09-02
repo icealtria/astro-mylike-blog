@@ -5,21 +5,18 @@
 }
 
 .friend-card {
-    background-color: white;
     padding: 1.5rem;
     font-size: 16px;
     text-decoration: none;
     color: black;
     transition: 0.3s;
     text-align: center;
-    border-radius: var(--border-radius);
 }
 
 .friend-card img {
     width: 6.5rem;
     height: 6.5rem;
     border-radius: 50%;
-    align-items: ;
     margin: 0 auto;
 }
 
