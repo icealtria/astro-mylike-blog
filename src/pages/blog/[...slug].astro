@@ -1,6 +1,8 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 import BlogPost from "@layouts/BlogPost.astro";
+import Encrypt from "@components/Encrypt.svelte";
+import * as openpgp from "openpgp";
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
   return posts.map((post) => ({
@@ -12,9 +14,23 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
+let encrypted: string = "";
 const { Content } = await post.render();
+if (post.data.password) {
+  encrypted = await openpgp.encrypt({
+    message: await openpgp.createMessage({ text: post.body }),
+    passwords: [post.data.password],
+    config: { preferredCompressionAlgorithm: openpgp.enums.compression.zlib },
+  }) as string;
+}
 ---
 
 <BlogPost {post}>
-  <Content slot="content" />
+  {
+    post.data.password ? (
+      <Encrypt client:load content={encrypted} slug={post.slug} />
+    ) : (
+      <Content slot="content" />
+    )
+  }
 </BlogPost>

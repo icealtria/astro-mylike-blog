@@ -9,7 +9,7 @@ import Icon from "astro-icon";
 
 type Props = CollectionEntry<"blog">["data"];
 const { post } = Astro.props;
-const { title, description, heroImage, tags } = post.data;
+const { title, description, heroImage, tags, password } = post.data;
 const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
 ---
 
@@ -21,7 +21,7 @@ const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
         <!-- <hr /> -->
       </div>
       {
-        toc_html && (
+        toc_html && !password && (
           <details>
             <summary>目录</summary>
             <div class="toc" set:html={toc_html} />
