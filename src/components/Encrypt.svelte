@@ -11,6 +11,7 @@
     onMount(() => {
         if (localStorage.getItem(slug)) {
             password = localStorage.getItem(slug) as string;
+            password = window.atob(password);
             decrypt();
         }
     })
@@ -27,7 +28,7 @@
             });
             decrypted = marked.parse(dec_message.data as string);
             isDecrypted = true;
-            localStorage.setItem(slug, password);
+            localStorage.setItem(slug, window.btoa(password));
         } catch (error) {
             alert(error);
         }
@@ -37,7 +38,7 @@
 {#if isDecrypted}
     {@html decrypted}
 {:else}
-    <div class="input radius-40" style="text-align: center;">
+    <form on:submit|preventDefault={decrypt} class="input radius-40" style="text-align: center;">
         <input
             bind:value={password}
             class="radius-40"
@@ -45,9 +46,9 @@
             placeholder="Password"
             style="background-color: var(--color-secondary-container);"
         />
-        <button class="radius-40" on:click={decrypt}>解密</button>
+        <button class="radius-40" type="submit">解密</button>
         <noscript>Javascript is required</noscript>
-    </div>
+    </form>
     <pre style="text-align: center">{content}</pre>
 {/if}
 
