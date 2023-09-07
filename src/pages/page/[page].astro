@@ -5,7 +5,8 @@ import Home from "@/layouts/Home.astro";
 import { SITE } from "@/consts";
 import PostList from "@/components/PostList.astro";
 export async function getStaticPaths({ paginate }) {
-  return paginate(posts, { pageSize: SITE.postPerPage });
+  const sorted_posts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return paginate(sorted_posts, { pageSize: SITE.postPerPage });
 }
 const { page } = Astro.props;
 ---
