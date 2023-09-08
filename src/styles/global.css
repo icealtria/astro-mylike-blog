@@ -165,3 +165,11 @@ footer {
 	padding: 2em 1em 6em 1em;
 	text-align: center;
 }
+
+button {
+	cursor: pointer;
+	background-color: var(--color-secondary-container);
+	border: none;
+	padding: .5rem 1rem;
+	font-size: 1rem;
+}

@@ -6,6 +6,8 @@ import toc from "markdown-toc";
 import { marked } from "marked";
 import ArticleInfo from "@/components/ArticleInfo.astro";
 import Icon from "astro-icon";
+import Giscus from "@giscus/svelte";
+import Comment from "@/components/Comment.svelte";
 
 type Props = CollectionEntry<"blog">["data"];
 const { post } = Astro.props;
@@ -29,7 +31,7 @@ const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
         )
       }
       <slot name="content" />
-      <hr>
+      <hr />
       <ArticleInfo slug={post.slug} {...post.data} />
       {
         tags && (
@@ -43,6 +45,19 @@ const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
           </div>
         )
       }
+      <!-- <Giscus
+        client:only="svelte"
+        repo="icealtria/astro-mylike-blog"
+        repoId="R_kgDOKISnYg"
+        category="Announcements"
+        categoryId="DIC_kwDOKISnYs4CZLRJ"
+        reactionsEnabled="0"
+        data-theme="light"
+      /> -->
     </article>
+    <div class="comment">
+      <Comment client:only="svelte" />
+      <noscript>Javascript is required</noscript>
+    </div>
   </main>
 </Layout>

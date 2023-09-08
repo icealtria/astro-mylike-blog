@@ -51,14 +51,3 @@
     </form>
     <pre style="text-align: center">{content}</pre>
 {/if}
-
-<style>
-    button {
-        cursor: pointer;
-        background-color: var(--color-secondary-container);
-        border: none;
-        height: 36px;
-        width: 4rem;
-        font-size: 1rem;
-    }
-</style>
