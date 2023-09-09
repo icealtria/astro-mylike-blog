@@ -1,12 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import "@/styles/article.css";
+// import "@/styles/article.css";
 import Layout from "./Layout.astro";
 import toc from "markdown-toc";
 import { marked } from "marked";
 import ArticleInfo from "@/components/ArticleInfo.astro";
 import Icon from "astro-icon";
-import Giscus from "@giscus/svelte";
 import Comment from "@/components/Comment.svelte";
 
 type Props = CollectionEntry<"blog">["data"];

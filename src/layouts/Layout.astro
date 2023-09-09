@@ -2,31 +2,25 @@
 import BaseHead from "@/components/BaseHead.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header/Header.astro";
-import { COLORS } from "../consts";
 const { title, description } = Astro.props;
-const color = COLORS.brown;
-const background = color.background;
-const primary = color.primary;
-const secondary = color.secondary;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-cn">
   <head>
     <BaseHead title={title} description={description} />
-    <style is:global define:vars={{ color, background, primary, secondary }}>
-      :root,
-      :host {
-        --color-background: var(--background);
-        --color-primary-container: var(--primary);
-        --color-secondary-container: var(--secondary);
-        --border-radius: 40px;
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600&family=Noto+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <Header />
-    <slot />
-    <Footer />
+  <body class="bg-background">
+    <div class="max-w-3xl mx-auto">
+      <Header />
+      <slot />
+      <!-- <Footer /> -->
+    </div>
   </body>
 </html>

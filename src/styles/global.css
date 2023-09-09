@@ -1,11 +1,10 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body {
-	font-family: "Noto Sans", "Noto Sans SC", "Noto Sans CJK SC", sans-serif;
+
+/* body {
+	font-family: "Noto Sans", "Noto Sans SC", sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -20,7 +19,7 @@ body {
 
 html {
 	scrollbar-gutter: stable both-edges;
- }
+}
 
 .container {
 	display: grid;
@@ -133,8 +132,8 @@ nav a,
 }
 
 .input input {
-    border-style: none;
-    padding: 0.5rem;
+	border-style: none;
+	padding: 0.5rem;
 }
 
 h1 {
@@ -172,4 +171,12 @@ button {
 	border: none;
 	padding: .5rem 1rem;
 	font-size: 1rem;
+} */
+
+
+@layer components {
+	.active {
+		@apply bg-secondary-container;
+		@apply text-on-secondary-container;
+	}
 }

@@ -14,12 +14,17 @@
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.0",
     "@astrojs/svelte": "^4.0.0",
+    "@astrojs/tailwind": "^5.0.0",
     "@giscus/svelte": "^2.3.0",
     "astro": "^3.0.3",
     "astro-icon": "^0.8.1",
     "markdown-toc": "^1.2.0",
     "marked": "^7.0.5",
     "openpgp": "^5.10.1",
-    "svelte": "^4.0.0"
+    "svelte": "^4.0.0",
+    "tailwindcss": "^3.0.24"
+  },
+  "devDependencies": {
+    "tailwind-material-colors": "^1.0.1"
   }
 }
