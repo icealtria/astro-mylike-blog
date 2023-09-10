@@ -3,7 +3,7 @@ import FormattedDate from "./FormattedDate.astro";
 const { title, description, heroImage, slug, pubDate } = Astro.props;
 ---
 
-<div class="post-summary radius-40 bg-w">
+<div class="post-summary radius-24 bg-w">
   <a class:list={heroImage && "has-image"} href={`/blog/${slug}/`}>
     <div class="info">
       <h1 class="title">{title}</h1>
@@ -12,6 +12,6 @@ const { title, description, heroImage, slug, pubDate } = Astro.props;
         <FormattedDate date={pubDate} />
       </span>
     </div>
-    {heroImage && <img src={heroImage} class="radius-40" alt={title} />}
+    {heroImage && <img src={heroImage} class="radius-24" alt={title} />}
   </a>
 </div>
