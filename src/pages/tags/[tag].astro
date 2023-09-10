@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import SideBar from "@/components/SideBar/SideBar.astro";
+import BaseLayout from "@/layouts/TwoCol.astro";
 import { getTagsInfo } from "@/scripts/tags";
 import TagsCard from "@/components/SideBar/TagsCard.astro";
 export async function getStaticPaths() {
@@ -15,14 +14,13 @@ import PostList from "@/components/PostList.astro";
 const filtered_posts = posts.filter((post) => {
   return post.data.tags?.includes(tag);
 });
-import "@/styles/home.css"
 ---
 
 <BaseLayout title={`标签: ${tag}`}>
-  <SideBar>
-    <TagsCard />
-  </SideBar>
-  <div class="main">
+  <div class="order-0 md:order-2 w-full">
     <PostList posts={filtered_posts} />
+  </div>
+  <div class="sidebar w-full md:max-w-xs">
+    <TagsCard />
   </div>
 </BaseLayout>

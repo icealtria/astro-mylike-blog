@@ -177,6 +177,26 @@ button {
 @layer components {
 	.active {
 		@apply bg-secondary-container;
-		@apply text-on-secondary-container;
 	}
+
+	article {
+		@apply mt-12;
+	}
+
+	.platform,
+	.tag {
+		font-family: 'Liberation Sans', sans-serif;
+	}
+
+
+
+	.sidebar-card {
+		@apply p-4 rounded-2xl bg-primary-container-dark;
+	}
+
+	.post-summary {
+		@apply bg-primary-container-light;
+
+	}
+
 }

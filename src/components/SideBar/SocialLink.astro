@@ -11,8 +11,13 @@ const { href, icon, rel, platform } = Astro.props;
 import { Icon } from "astro-icon";
 ---
 
-<a class="social-link radius-40" href={href} rel={rel} target="_blank">
-  <Icon name={icon} />
+<a
+  class="text-center py-1 flex items-center justify-center rounded-full bg-primary-container-light hover:bg-primary-container-hover"
+  href={href}
+  rel={rel}
+  target="_blank"
+>
+  <Icon class="h-4 w-4" name={icon} />
   <span class="platform">
     {platform}
   </span>

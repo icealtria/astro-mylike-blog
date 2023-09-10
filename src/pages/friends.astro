@@ -1,44 +1,34 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import SideBar from "@components/SideBar/SideBar.astro";
+import BaseLayout from "@/layouts/Layout.astro";
 import FriendCard from "@components/FriendCard.astro";
-import SidebarCard from "@/components/SideBar/SidebarCard.astro";
 // import "@/styles/friends.css"
 ---
 
 <BaseLayout title="友情链接">
-  <SideBar>
-    <SidebarCard>
-      <h1>喵喵 ~</h1>
-      <p>Owo</p>
-    </SidebarCard>
-  </SideBar>
-  <div class="main">
-    <div class="friends">
-      <FriendCard
-        avatar="/images/avatar.webp"
-        name="icealtria"
-        url="https://github.com/icealtria"
-        desc="谋杀一个午觉就是犯罪！ 午觉使人复活！"
-      />
-      <FriendCard
-        avatar="/images/avatar.webp"
-        name="icealtria"
-        url="https://github.com/icealtria"
-        desc="谋杀一个午觉就是犯罪！ 午觉使人复活！"
-      />
-      <FriendCard
-        avatar="/images/avatar.webp"
-        name="icealtria"
-        url="https://github.com/icealtria"
-        desc="谋杀一个午觉就是犯罪！ 午觉使人复活！"
-      />
-      <FriendCard
-        avatar="/images/avatar.webp"
-        name="icealtria"
-        url="https://github.com/icealtria"
-        desc="谋杀一个午觉就是犯罪！ 午觉使人复活！"
-      />
-    </div>
+  <div class="grid grid-cols-fill gap-4 mt-12">
+    <FriendCard
+      avatar="/images/avatar.webp"
+      name="icealtria"
+      url="https://github.com/icealtria"
+      desc="谋杀一个午觉就是犯罪！ 午觉使人复活！"
+    />
+    <FriendCard
+      avatar="/images/avatar.webp"
+      name="icealtria"
+      url="https://github.com/icealtria"
+      desc="谋杀一个午觉就是犯罪！ 午觉使人复活！"
+    />
+    <FriendCard
+      avatar="/images/avatar.webp"
+      name="icealtria"
+      url="https://github.com/icealtria"
+      desc="谋杀一个午觉就是犯罪！ 午觉使人复活！"
+    />
+    <FriendCard
+      avatar="/images/avatar.webp"
+      name="icealtria"
+      url="https://github.com/icealtria"
+      desc="谋杀一个午觉就是犯罪！ 午觉使人复活！"
+    />
   </div>
 </BaseLayout>

@@ -1,12 +1,12 @@
 ---
 import HomeSideBar from "@/components/SideBar/HomeSideBar.astro";
-import BaseLayout from "./BaseLayout.astro";
+import BaseLayout from "./TwoCol.astro";
 const { title, description } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
-  <div >
+  <div class="order-0 md:order-2 w-full">
     <slot />
   </div>
-  <!-- <HomeSideBar /> -->
+  <HomeSideBar />
 </BaseLayout>

@@ -11,10 +11,10 @@ const has_next = posts.length > SITE.postPerPage;
 ---
 
 <Home title={SITE.title} description={SITE.description}>
-  <!-- <PostList posts={fposts} /> -->
-  <!-- <div class="pagination">
+  <PostList posts={fposts} />
+  <div class="pagination">
     <div class="next">
       {has_next ? <HeaderLink href="/page/2">更多</HeaderLink> : null}
     </div>
-  </div> -->
+  </div>
 </Home>
