@@ -2,201 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* body {
-	font-family: "Noto Sans", "Noto Sans SC", sans-serif;
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	background-color: var(--color-background);
-	background-size: 100% 600px;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	font-size: 20px;
-	line-height: 1.7;
-	text-rendering: optimizeSpeed;
-}
-
-html {
-	scrollbar-gutter: stable both-edges;
-}
-
-.container {
-	display: grid;
-	grid-template-columns: 320px 1fr;
-	grid-gap: .5rem;
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 .5rem;
-}
-
-.sidebar {
-	order: 1;
-	max-width: 320px;
-}
-
-.main {
-	order: 2;
-
-}
-
-@media (max-width: 1000px) {
-
-	.container {
-		grid-template-columns: 1fr;
-	}
-
-	.sidebar {
-		order: 2;
-		max-width: 100%;
-	}
-
-	.main {
-		order: 1;
-	}
-}
-
-.post-list ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-nav {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	margin: 8px;
-	gap: 16px;
-}
-
-.pagination {
-	padding: 4px 0;
-	display: flex;
-}
-
-.prev {
-	margin-right: auto;
-}
-
-.next {
-	margin-left: auto;
-}
-
-a {
-	color: black;
-}
-
-nav a,
-.pagination a {
-	text-decoration: none;
-	padding: .3rem 16px;
-	transition: background-color 0.3s;
-}
-
-.header-link:hover,
-.header-link.active {
-	background-color: var(--color-secondary-container);
-}
-
-.card {
-	padding: 1.5rem;
-	margin-bottom: 0.5rem;
-}
-
-.sidebar-card {
-	text-align: center;
-}
-
-.tag {
-	display: inline-block;
-	transition: background-color 0.3s;
-	border-radius: 40px;
-	padding: 0 0.5rem;
-	font-size: 1.1rem;
-	text-decoration: none;
-	color: black;
-}
-
-.tag:hover {
-	background-color: #eee;
-}
-
-.radius-40 {
-	border-radius: 40px;
-}
-
-.bg-w {
-	background-color: white;
-}
-
-.input input {
-	border-style: none;
-	padding: 0.5rem;
-}
-
-h1 {
-	font-size: 2.0rem;
-}
-
-h2 {
-	font-size: 1.741rem;
-}
-
-h3 {
-	font-size: 1.516rem;
-}
-
-h4 {
-	font-size: 1.320rem;
-}
-
-h5 {
-	font-size: 1.149rem;
-}
-
-h6 {
-	font-size: 1.0rem;
-}
-
-footer {
-	padding: 2em 1em 6em 1em;
-	text-align: center;
-}
-
-button {
-	cursor: pointer;
-	background-color: var(--color-secondary-container);
-	border: none;
-	padding: .5rem 1rem;
-	font-size: 1rem;
-} */
-
-
 @layer components {
 	.active {
 		@apply bg-secondary-container;
 	}
 
+	.header-link {
+		@apply px-4 py-2 rounded-3xl hover:shadow hover:bg-secondary-container-hover transition-shadow mx-1 md:mx-4;
+	}
+
+	.social-link {
+		@apply text-center py-1 flex gap-1 items-center justify-center rounded-full hover:bg-secondary-container-hover transition-colors;
+	}
+
 	article {
-		@apply mt-12;
+		@apply mt-12 prose lg:prose-xl prose-p:my-4 mx-auto dark:prose-invert;
 	}
 
-	.platform,
-	.tag {
-		font-family: 'Liberation Sans', sans-serif;
+	article a {
+		@apply text-secondary;
 	}
-
-
 
 	.sidebar-card {
-		@apply p-4 rounded-2xl bg-primary-container-dark;
+		@apply p-4 rounded-2xl bg-white dark:bg-surface-variant shadow-md;
 	}
 
 	.post-summary {
-		@apply bg-primary-container-light;
+		@apply bg-white dark:bg-surface-variant hover:bg-surface-hover transition-colors shadow-md;
 
 	}
 
+	.friend-card {
+		@apply bg-secondary-container shadow-md p-4 mx-auto rounded-2xl flex hover:bg-secondary-container-hover transition-all;
+	}
+
+	.pagination-item {
+		@apply w-8 h-8 font-semibold bg-surface-variant flex items-center justify-center align-middle rounded-lg hover:bg-tertiary-container-hover shadow;
+	}
+
+	.title {
+		@apply text-center;
+	}
+
+	.tag {
+		@apply inline-block rounded-full py-1 px-3 hover:bg-secondary-container-hover transition-colors;
+	}
+
+	.button-xl {
+		@apply bg-tertiary-container shadow-md px-6 py-4 rounded-2xl hover:bg-tertiary-container-hover;
+	}
+}
+
+body {
+	font-family: 'Noto Sans', 'Noto Sans SC', sans-serif;
+}
+
+.profile-card img {
+	transition: transform 1s cubic-bezier(0.275, 0.82, 0.265, 1);
+}
+
+.profile-card img:hover {
+	transform: rotate(360deg);
 }

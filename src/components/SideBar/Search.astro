@@ -3,7 +3,7 @@ import { SITE } from "@/consts";
 import Icon from "astro-icon";
 ---
 
-<div class="bg-secondary-container rounded-full">
+<div class="bg-secondary-container rounded-3xl shadow-md">
     <form
         class="ddg flex p-1"
         name="x"
@@ -13,7 +13,7 @@ import Icon from "astro-icon";
         <input type="hidden" value={SITE.url} name="sites" />
         <input
             type="search"
-            class="pl-3 rounded-full w-full"
+            class="pl-3 rounded-3xl w-full"
             placeholder="DuckDuckGo"
             name="q"
         />

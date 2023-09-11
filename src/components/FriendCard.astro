@@ -2,12 +2,9 @@
 const { name, url, avatar, desc } = Astro.props;
 ---
 
-<a
-  class="bg-tertiary-container p-4 mx-auto text-on-tertiary-container rounded-2xl flex hover:rounded-4xl transition-all"
-  href={url}
->
-  <img class="avatar w-24 h-24 rounded-2xl" src={avatar} alt="avatar" />
-  <div class="friend-content ml-4 text-on-tertiary-container">
+<a class="friend-card" href={url}>
+  <img class="w-24 h-24 rounded-2xl" src={avatar} alt="avatar" />
+  <div class="ml-4">
     <div class="text-xl font-semibold">{name}</div>
     <div class="text-sm">{desc}</div>
   </div>

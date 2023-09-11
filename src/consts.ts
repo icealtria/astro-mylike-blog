@@ -6,5 +6,5 @@ export const SITE = {
     description: 'A simple blog template for Astro by icealtria',
     slogan: 'A simple blog template for Astro by icealtria',
     author: "MyLike",
-    postPerPage: 2,
+    postPerPage: 5,
 }

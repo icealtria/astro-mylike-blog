@@ -3,6 +3,7 @@ import { posts } from "@/scripts/collection-workaround";
 import Home from "@/layouts/Home.astro";
 import { SITE } from "@/consts";
 import PostList from "@/components/PostList.astro";
+import Icon from "astro-icon";
 export async function getStaticPaths({ paginate }) {
   const sorted_posts = posts.sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -19,13 +20,15 @@ const { page } = Astro.props;
   <PostList posts={page.data} />
   <div class="pagination flex justify-between mt-4">
     <div class="prev">
-      <a href={page.url.prev} class={page.url.prev ? "" : "pointer-events-none"}
-        >上一页</a
+      <a
+        href={page.url.prev}
+        class:list={[{"pointer-events-none text-gray": !page.url.prev}, "pagination-item"]}
+        ><Icon name="ic:baseline-chevron-left" /></a
       >
     </div>
 
     {/* Generate page numbers */}
-    <div class="page-numbers">
+    <div class="page-numbers flex gap-4">
       {
         Array.from({ length: page.lastPage }, (_, index) => {
           const pageNumber = index + 1;
@@ -33,8 +36,8 @@ const { page } = Astro.props;
             <a
               href={`${pageNumber}`}
               class:list={[
-                "mx-4 p-2 rounded-full",
-                pageNumber === page.currentPage ? "bg-primary-container" : "",
+                "pagination-item",
+                pageNumber === page.currentPage ? "bg-tertiary-container" : "",
               ]}
             >
               {pageNumber}
@@ -45,8 +48,10 @@ const { page } = Astro.props;
     </div>
 
     <div class="next">
-      <a href={page.url.next} class={page.url.next ? "" : "pointer-events-none"}
-        >下一页</a
+      <a
+        href={page.url.next}
+        class:list={[{"pointer-events-none text-gray": !page.url.next}, "pagination-item"]}
+        ><Icon name="ic:baseline-chevron-right" /></a
       >
     </div>
   </div>

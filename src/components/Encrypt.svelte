@@ -41,12 +41,12 @@
     <form on:submit|preventDefault={decrypt} class="input radius-40" style="text-align: center;">
         <input
             bind:value={password}
-            class="radius-40"
+            class="pl-3 rounded-3xl outline outline-1"
             type="password"
             placeholder="Password"
             style="background-color: var(--color-secondary-container);"
         />
-        <button class="radius-40" type="submit">解密</button>
+        <button class="bg-primary px-4 hover:bg-primary-hover py-1 rounded-full" type="submit">解密</button>
         <noscript>Javascript is required</noscript>
     </form>
     <pre style="text-align: center">{content}</pre>

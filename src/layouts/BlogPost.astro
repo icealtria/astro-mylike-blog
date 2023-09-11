@@ -15,16 +15,15 @@ const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
 ---
 
 <Layout title={title} description={description}>
-  <main id="main">
-    <article class="prose lg:prose-xl mx-auto">
+  <main class="max-w-3xl mx-auto">
+    <article>
       <div class="title">
         <h1>{title}</h1>
-        <!-- <hr /> -->
       </div>
       {
         toc_html && !password && (
           <details>
-            <summary>目录</summary>
+            <summary>Table of Contents</summary>
             <div class="toc" set:html={toc_html} />
           </details>
         )
@@ -32,29 +31,20 @@ const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
       <slot name="content" />
       <hr />
       <ArticleInfo slug={post.slug} {...post.data} />
-      {
-        tags && (
-          <div class="tags">
-            <Icon name="ri:hashtag" />
-            {tags.map((tag) => (
-              <a class="tag" href={`/tags/${tag}`}>
-                {tag}
-              </a>
-            ))}
-          </div>
-        )
-      }
-      <!-- <Giscus
-        client:only="svelte"
-        repo="icealtria/astro-mylike-blog"
-        repoId="R_kgDOKISnYg"
-        category="Announcements"
-        categoryId="DIC_kwDOKISnYs4CZLRJ"
-        reactionsEnabled="0"
-        data-theme="light"
-      /> -->
     </article>
-    <div class="comment">
+    {
+      tags && (
+        <div class="tags flex gap-2 items-center">
+          <Icon name="ri:hashtag" class="w-6 h-6" />
+          {tags.map((tag) => (
+            <a class="tag" href={`/tags/${tag}`}>
+              {tag}
+            </a>
+          ))}
+        </div>
+      )
+    }
+    <div class="comment mx-auto text-center">
       <Comment client:only="svelte" />
       <noscript>Javascript is required</noscript>
     </div>

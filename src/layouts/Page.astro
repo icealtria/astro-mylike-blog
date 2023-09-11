@@ -1,14 +1,15 @@
 ---
-const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } =
+  Astro.props;
 import Layout from "./Layout.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 ---
 
 <Layout title={title} description={description}>
-      <article class="prose lg:prose-xl mx-auto">
-        <div class="title">
-          <h1>{title}</h1>
-        </div>
-        <slot />
-      </article>
+  <article>
+    <div class="title">
+      <h1 class="bg-surface">{title}</h1>
+    </div>
+    <slot />
+  </article>
 </Layout>

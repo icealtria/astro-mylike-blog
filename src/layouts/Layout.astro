@@ -9,18 +9,12 @@ const { title, description } = Astro.props;
 <html lang="zh-cn">
   <head>
     <BaseHead title={title} description={description} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600&family=Noto+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body class="bg-background">
     <Header />
-    <div class="container max-w-6xl mx-auto px-4">
+    <div class="mx-auto px-4">
       <slot />
-      <!-- <Footer /> -->
+      <Footer />
     </div>
   </body>
 </html>

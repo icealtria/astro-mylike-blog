@@ -7,11 +7,17 @@ module.exports = withMaterialColors({
 		extend: {
 			gridTemplateColumns: {
 				'fill': 'repeat(auto-fit, minmax(32ch, 1fr));',
-			  },
-			  borderRadius: {
+			},
+			borderRadius: {
 				'4xl': '2rem',
 			},
-		},
+			maxWidth: {
+				'2xs': '18rem',
+			  },
+			  colors: {
+				'gray': '#D3D3D3',
+			  }
+		}
 	},
 	plugins: [require('@tailwindcss/typography'),],
 	// Here, your tailwind config.
@@ -20,6 +26,7 @@ module.exports = withMaterialColors({
 	// Here, your base colors as HEX values
 	// primary is required
 	// secondary and/or tertiary are optional, if not set they will be derived from the primary color
-	// primary: '#405e0d',
-	primary: '#586500',
+	primary: '#405e0d',
+	// primary: '#875300',
+	w: '#fff',
 });
