@@ -2,10 +2,10 @@
 const { name, url, avatar, desc } = Astro.props;
 ---
 
-<a class="friend-card bg-w radius-24" href={url}>
-  <img src={avatar} alt="avatar" />
-  <div class="friend-content">
-    <div class="name">{name}</div>
-    <div class="description">{desc}</div>
+<a class="friend-card" href={url}>
+  <img class="w-24 h-24 rounded-2xl" src={avatar} alt="avatar" />
+  <div class="ml-4">
+    <div class="text-xl font-semibold">{name}</div>
+    <div class="text-sm">{desc}</div>
   </div>
 </a>

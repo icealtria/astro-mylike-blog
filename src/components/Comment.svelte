@@ -15,5 +15,5 @@ data-theme="noborder_light"
 inputPosition="top"
 />
 {:else}
-<button class="radius-40" on:click={() => (load = true)}>加载评论</button>
+<button class="button-xl my-12" on:click={() => (load = true)}>加载评论</button>
 {/if}

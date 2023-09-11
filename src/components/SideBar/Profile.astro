@@ -1,37 +1,39 @@
 ---
 import SocialLink from "./SocialLink.astro";
-import SidebarCard from "./SidebarCard.astro";
 
 const avatar = "/images/avatar.webp";
 import { SITE } from "@/consts";
 ---
 
-<SidebarCard>
-  <div class="profile-card">
-    <img src={avatar} alt="avatar" />
-    <div class="name">{SITE.author}</div>
-    <div class="slogan">{SITE.slogan}</div>
-    <div class="social-links">
-      <SocialLink
-        href="https://github.com/icealtria"
-        icon="ri:github-fill"
-        platform="Github"
-      />
-      <SocialLink
-        href="https://mastodon.social/@icealtria"
-        icon="ri:mastodon-fill"
-        platform="Mastodon"
-      />
-      <SocialLink
-        href="mailto:icealtria@example.com"
-        icon="ri:mail-fill"
-        platform="Email"
-      />
-      <SocialLink
-        href="https://t.me/telegram"
-        icon="ri:telegram-fill"
-        platform="Telegram"
-      />
-    </div>
+<div class="sidebar-card profile-card">
+  <!-- <img src={avatar} alt="avatar" /> -->
+  <img
+    class="avatar w-24 h-24 rounded-full my-2 mx-auto"
+    src={avatar}
+    alt="avatar"
+  />
+  <div class="name text-2xl mt-4 font-semibold text-center">{SITE.author}</div>
+  <div class="slogan my-2 text-center">{SITE.slogan}</div>
+  <div class="social-links grid grid-cols-2 gap-4 mt-6">
+    <SocialLink
+      href="https://github.com/icealtria/astro-mylike-blog"
+      icon="ri:github-fill"
+      platform="Github"
+    />
+    <SocialLink
+      href="https://mastodon.social/"
+      icon="ri:mastodon-fill"
+      platform="Mastodon"
+    />
+    <SocialLink
+      href="mailto:me@example.com"
+      icon="ri:mail-fill"
+      platform="Email"
+    />
+    <SocialLink
+      href="https://t.me/telegram"
+      icon="ri:telegram-fill"
+      platform="Telegram"
+    />
   </div>
-</SidebarCard>
+</div>

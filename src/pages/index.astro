@@ -3,18 +3,29 @@ import { SITE } from "../consts";
 import Home from "@/layouts/Home.astro";
 import { posts } from "@/scripts/collection-workaround";
 import PostList from "@/components/PostList.astro";
-import HeaderLink from "@/components/Header/HeaderLink.astro";
+import Icon from "astro-icon";
 const fposts = posts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, SITE.postPerPage);
 const has_next = posts.length > SITE.postPerPage;
 ---
-
 <Home title={SITE.title} description={SITE.description}>
   <PostList posts={fposts} />
-  <div class="pagination">
-    <div class="next">
-      {has_next ? <HeaderLink href="/page/2">更多</HeaderLink> : null}
-    </div>
+  <div class="flex justify-end">
+    {
+      has_next ? (
+        <a
+          class="button-xl"
+          href="/page/2"
+        >
+          <div class="flex gap-1">
+            <span class="w-6 h-6">
+              <Icon name="ic:baseline-article" />
+            </span>
+            <span>更多文章</span>
+          </div>
+        </a>
+      ) : null
+    }
   </div>
 </Home>

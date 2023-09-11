@@ -1,11 +1,13 @@
 ---
 import { posts } from "@/scripts/collection-workaround";
-import HeaderLink from "@/components/Header/HeaderLink.astro";
 import Home from "@/layouts/Home.astro";
 import { SITE } from "@/consts";
 import PostList from "@/components/PostList.astro";
+import Icon from "astro-icon";
 export async function getStaticPaths({ paginate }) {
-  const sorted_posts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  const sorted_posts = posts.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  );
   return paginate(sorted_posts, { pageSize: SITE.postPerPage });
 }
 const { page } = Astro.props;
@@ -16,20 +18,41 @@ const { page } = Astro.props;
   description={SITE.description}
 >
   <PostList posts={page.data} />
-  <div class="pagination">
+  <div class="pagination flex justify-between mt-4">
     <div class="prev">
+      <a
+        href={page.url.prev}
+        class:list={[{"pointer-events-none text-gray": !page.url.prev}, "pagination-item"]}
+        ><Icon name="ic:baseline-chevron-left" /></a
+      >
+    </div>
+
+    {/* Generate page numbers */}
+    <div class="page-numbers flex gap-4">
       {
-        page.url.prev ? (
-          <HeaderLink href={page.url.prev}>上一页</HeaderLink>
-        ) : null
+        Array.from({ length: page.lastPage }, (_, index) => {
+          const pageNumber = index + 1;
+          return (
+            <a
+              href={`${pageNumber}`}
+              class:list={[
+                "pagination-item",
+                pageNumber === page.currentPage ? "bg-tertiary-container" : "",
+              ]}
+            >
+              {pageNumber}
+            </a>
+          );
+        })
       }
     </div>
+
     <div class="next">
-      {
-        page.url.next ? (
-          <HeaderLink href={page.url.next}>下一页</HeaderLink>
-        ) : null
-      }
+      <a
+        href={page.url.next}
+        class:list={[{"pointer-events-none text-gray": !page.url.next}, "pagination-item"]}
+        ><Icon name="ic:baseline-chevron-right" /></a
+      >
     </div>
   </div>
 </Home>

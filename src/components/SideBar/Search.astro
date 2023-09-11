@@ -1,0 +1,28 @@
+---
+import { SITE } from "@/consts";
+import Icon from "astro-icon";
+---
+
+<div class="bg-secondary-container rounded-3xl shadow-md">
+    <form
+        class="ddg flex p-1"
+        name="x"
+        action="https://duckduckgo.com/"
+        target="_blank"
+    >
+        <input type="hidden" value={SITE.url} name="sites" />
+        <input
+            type="search"
+            class="pl-3 rounded-3xl w-full"
+            placeholder="DuckDuckGo"
+            name="q"
+        />
+        <button
+            class="search-button m-1 w-8 h-7"
+            type="submit"
+            aria-label="Search"
+        >
+            <Icon name="ri:search-line" />
+        </button>
+    </form>
+</div>

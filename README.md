@@ -7,7 +7,6 @@ Placeholder images from [NoCopyrightGirl](https://www.pixiv.net/en/users/3254894
 
 Features:
 
-- ✅ Minimal styling (make it your own!)
 - ✅ 100/100 Lighthouse performance
 - ✅ SEO-friendly with canonical URLs and OpenGraph data
 - ✅ Sitemap support
@@ -24,8 +23,9 @@ Inside of your Astro project, you'll see the following folders and files:
 │   ├── content/
 │   ├── layouts/
 │   ├── pages/
-│   └── scripts/
-│   └── styles/
+│   ├── scripts/
+│   ├── styles/
+|   └── consts.ts
 ├── astro.config.mjs
 ├── README.md
 ├── package.json

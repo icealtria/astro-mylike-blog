@@ -1,20 +1,11 @@
 ---
-import { SITE } from "@/consts";
-import Icon from "astro-icon";
 import Profile from "./Profile.astro";
 import TagsCard from "./TagsCard.astro";
+import Search from "./Search.astro";
 ---
 
-<div class="sidebar">
+<div class="w-full md:max-w-2xs flex flex-col gap-2">
   <Profile />
   <TagsCard />
-  <div class="input bg-w radius-40">
-    <form class="ddg" name="x" action="https://duckduckgo.com/" target="_blank">
-      <input type="hidden" value={SITE.url} name="sites" />
-      <input type="search" class="radius-40" placeholder="DuckDuckGo" name="q" />
-      <button class="search-button" type="submit" aria-label="Search">
-        <Icon name="ri:search-line" />
-      </button>
-    </form>
-  </div>
+  <Search />
 </div>
