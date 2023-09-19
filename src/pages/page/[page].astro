@@ -22,12 +22,11 @@ const { page } = Astro.props;
     <div class="prev">
       <a
         href={page.url.prev}
-        class:list={[{"pointer-events-none text-gray": !page.url.prev}, "pagination-item"]}
+        class:list={[{"pointer-events-none no-next": !page.url.prev}, "pagination-item"]}
         ><Icon name="ic:baseline-chevron-left" /></a
       >
     </div>
 
-    {/* Generate page numbers */}
     <div class="page-numbers flex gap-4">
       {
         Array.from({ length: page.lastPage }, (_, index) => {
@@ -37,7 +36,7 @@ const { page } = Astro.props;
               href={`${pageNumber}`}
               class:list={[
                 "pagination-item",
-                pageNumber === page.currentPage ? "bg-tertiary-container" : "",
+                pageNumber === page.currentPage ? "page-active" : "",
               ]}
             >
               {pageNumber}
@@ -50,7 +49,7 @@ const { page } = Astro.props;
     <div class="next">
       <a
         href={page.url.next}
-        class:list={[{"pointer-events-none text-gray": !page.url.next}, "pagination-item"]}
+        class:list={[{"pointer-events-none no-next": !page.url.next}, "pagination-item"]}
         ><Icon name="ic:baseline-chevron-right" /></a
       >
     </div>

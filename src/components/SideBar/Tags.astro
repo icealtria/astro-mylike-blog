@@ -3,7 +3,7 @@ import { getTagsInfo } from "@/scripts/tags";
 const tags = Array.from(getTagsInfo()).sort((a, b) => b[1] - a[1]);
 ---
 
-<div class="tags flex flex-wrap gap-2">
+<div class="tags flex flex-wrap">
   {
     tags.map(([tag, count]) => (
       <>

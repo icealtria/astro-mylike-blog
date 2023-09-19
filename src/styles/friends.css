@@ -1,0 +1,16 @@
+@tailwind components;
+
+@layer components {
+
+    .friend-card {
+        @apply bg-white dark:bg-surface-variant shadow-md p-4 mx-auto rounded-2xl flex hover:bg-surface-hover transition-colors w-full;
+    }
+
+    .name {
+        @apply text-xl font-semibold;
+    }
+
+    .friend-card img {
+        @apply w-24 h-24 rounded-2xl;
+    }
+}

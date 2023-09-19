@@ -1,0 +1,42 @@
+@tailwind components;
+
+
+@layer components {
+    .social-link {
+        @apply text-center py-1 flex gap-1 items-center justify-center rounded-full hover:bg-secondary-container-hover transition-colors;
+    }
+
+    .sidebar-card {
+        @apply p-3 rounded-2xl bg-white dark:bg-surface-variant shadow-md;
+    }
+
+    .post-summary {
+        @apply bg-white dark:bg-surface-variant hover:bg-surface-hover transition-colors shadow-md;
+
+    }
+
+    .pagination-item {
+        @apply w-8 h-8 font-semibold bg-surface-variant flex items-center justify-center align-middle rounded-lg hover:bg-tertiary-container-hover shadow;
+    }
+
+    .no-next {
+        @apply text-gray
+    }
+
+    .page-active {
+        @apply bg-tertiary-container;
+    }
+
+    .tag {
+        @apply rounded-2xl py-1 px-2 text-sm hover:bg-secondary-container-hover transition-colors;
+    }
+}
+
+
+.profile-card img {
+    transition: transform 1s cubic-bezier(0.275, 0.82, 0.265, 1);
+}
+
+.profile-card img:hover {
+    transform: rotate(360deg);
+}

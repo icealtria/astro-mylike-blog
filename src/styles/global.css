@@ -1,6 +1,4 @@
-@tailwind base;
 @tailwind components;
-@tailwind utilities;
 
 @layer components {
 	.active {
@@ -11,77 +9,20 @@
 		@apply px-4 py-2 rounded-3xl hover:shadow hover:bg-secondary-container-hover transition-shadow mx-1 md:mx-4;
 	}
 
-	.social-link {
-		@apply text-center py-1 flex gap-1 items-center justify-center rounded-full hover:bg-secondary-container-hover transition-colors;
-	}
-
-	article {
-		@apply mt-12 prose lg:prose-xl prose-p:my-4 mx-auto dark:prose-invert;
-	}
-
-	article a {
-		@apply text-secondary;
-	}
-
-	.sidebar-card {
-		@apply p-4 rounded-2xl bg-white dark:bg-surface-variant shadow-md;
-	}
-
-	.post-summary {
-		@apply bg-white dark:bg-surface-variant hover:bg-surface-hover transition-colors shadow-md;
-
-	}
-
-	.friend-card {
-		@apply bg-secondary-container shadow-md p-4 mx-auto rounded-2xl flex hover:bg-secondary-container-hover transition-all;
-	}
-
-	.pagination-item {
-		@apply w-8 h-8 font-semibold bg-surface-variant flex items-center justify-center align-middle rounded-lg hover:bg-tertiary-container-hover shadow;
-	}
-
-	.title {
-		@apply text-center;
-	}
-
-	.tag {
-		@apply inline-block rounded-full py-1 px-3 hover:bg-secondary-container-hover transition-colors;
-	}
-
 	.button-xl {
 		@apply bg-tertiary-container shadow-md px-6 py-4 rounded-2xl hover:bg-tertiary-container-hover;
 	}
 
-	.input {
-		@apply p-2 outline outline-1 focus:outline-2 rounded-sm text-lg bg-transparent;
-	}
 
-	.input-label {
-		@apply mb-2 text-lg absolute top-2 left-2 transition-all pointer-events-none;
-	}
-
-	.input-wrapper {
-		@apply relative;
-	}
-
-	.input:focus~.input-label,
-	.input:valid~.input-label {
-		@apply -top-3 bg-surface px-1 text-sm
-	}
-
-	.button-primary {
-		@apply bg-primary px-4 hover:bg-primary-hover py-1 rounded-full
-	}
 }
 
 body {
 	font-family: 'Noto Sans', 'Noto Sans SC', sans-serif;
 }
 
-.profile-card img {
-	transition: transform 1s cubic-bezier(0.275, 0.82, 0.265, 1);
-}
-
-.profile-card img:hover {
-	transform: rotate(360deg);
+.header-link svg {
+	display: inline-block;
+	width: 1.2rem;
+	height: 1.2rem;
+	/* vertical-align: -0.3rem; */
 }

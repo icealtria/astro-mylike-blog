@@ -1,20 +1,16 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import Icon from "astro-icon";
+import { SITE } from "@/consts";
 ---
 
-<nav class="flex justify-center my-4 md:my-8">
-  <HeaderLink href="/"><Icon name="ic:baseline-home" />首页</HeaderLink>
-  <!-- <HeaderLink href="/blog"><Icon name="ic:baseline-archive" /> 归档</HeaderLink> -->
-  <HeaderLink href="/friends"><Icon name="ic:baseline-contacts" />友链</HeaderLink>
-  <HeaderLink href="/about"><Icon name="ic:baseline-info" />关于</HeaderLink>
+<nav>
+  <div class="flex justify-center my-4">
+    <HeaderLink href="/"><Icon name="ic:baseline-home" />首页</HeaderLink>
+    <!-- <HeaderLink href="/blog"><Icon name="ic:baseline-archive" /> 归档</HeaderLink> -->
+    <HeaderLink href="/friends">
+      <Icon name="ic:baseline-contacts" />友链
+    </HeaderLink>
+    <HeaderLink href="/about"><Icon name="ic:baseline-info" />关于</HeaderLink>
+  </div>
 </nav>
-
-<style>
-  svg {
-    display: inline-block;
-    width: 1.2rem;
-    height: 1.2rem;
-    vertical-align: -0.3rem;
-  }
-</style>

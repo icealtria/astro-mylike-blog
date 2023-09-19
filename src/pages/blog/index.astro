@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
@@ -27,8 +28,9 @@ let sorted_posts = posts.map((post) => {
         sorted_posts.map((post) => (
           <>
             {post.isAnotherYear && <h3 class="bg-surface">{post.data.pubDate.getFullYear()}</h3>}
-            <li>
-              <a class="bg-surface" href={`/blog/${post.slug}/`}>{post.data.title}</a>
+            <li class="flex justify-between">
+              <a class="bg-surface m-0" href={`/blog/${post.slug}/`}>{post.data.title}</a>
+              <span class="m-0"><FormattedDate date={post.data.pubDate} /></span>
             </li>
           </>
         ))

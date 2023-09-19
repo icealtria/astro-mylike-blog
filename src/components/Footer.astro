@@ -4,7 +4,8 @@ const today = new Date();
 import Icon from "astro-icon";
 ---
 
-<footer class="text-center my-4">
+<footer class="gap-2 my-8 flex justify-center items-center">
   Copyright &copy; {today.getFullYear()}
-  {SITE.author} | <a href="/atom.xml">RSS</a>
+  <span>{SITE.author}</span>|
+  <a href="/atom.xml">RSS</a>
 </footer>

@@ -1,12 +1,13 @@
 ---
 import type { CollectionEntry } from "astro:content";
-// import "@/styles/article.css";
+import "@/styles/article.css";
 import Layout from "./Layout.astro";
 import toc from "markdown-toc";
 import { marked } from "marked";
 import ArticleInfo from "@/components/ArticleInfo.astro";
 import Icon from "astro-icon";
 import Comment from "@/components/Comment.svelte";
+import ArticleTags from "@/components/ArticleTags.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 const { post } = Astro.props;
@@ -15,10 +16,17 @@ const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
 ---
 
 <Layout title={title} description={description}>
-  <main class="max-w-3xl mx-auto">
+  <main class="max-w-4xl mx-auto rounded-2xl">
+    {
+      heroImage && (
+        <img class="w-full rounded-2xl shadow-xl" src={heroImage} alt={title} />
+      )
+    }
     <article>
-      <div class="title">
-        <h1>{title}</h1>
+      <div>
+        <h1 class="mb-0">{title}</h1>
+        <ArticleInfo slug={post.slug} {...post.data} />
+        <ArticleTags tags={tags} />
       </div>
       {
         toc_html && !password && (
@@ -29,24 +37,12 @@ const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
         )
       }
       <slot name="content" />
-      <hr />
-      <ArticleInfo slug={post.slug} {...post.data} />
     </article>
-    {
-      tags && (
-        <div class="tags flex gap-2 items-center">
-          <Icon name="ri:hashtag" class="w-6 h-6" />
-          {tags.map((tag) => (
-            <a class="tag" href={`/tags/${tag}`}>
-              {tag}
-            </a>
-          ))}
-        </div>
-      )
-    }
-    <div class="comment mx-auto text-center">
-      <Comment client:only="svelte" />
-      <noscript>Javascript is required</noscript>
+    <div class="mx-4 md:mx-8 md:py-2">
+      <div class="comment mx-auto text-center">
+        <Comment client:only="svelte" />
+        <noscript>Javascript is required</noscript>
+      </div>
     </div>
   </main>
 </Layout>

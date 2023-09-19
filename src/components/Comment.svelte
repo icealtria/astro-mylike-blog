@@ -1,6 +1,7 @@
 <script>
     let load = false;
     import Giscus from "@giscus/svelte";
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ?  'noborder_dark' : 'noborder_light'
 </script>
 
 
@@ -12,7 +13,7 @@
     category="Announcements"
     categoryId="DIC_kwDOKISnYs4CZLRJ"
     reactionsEnabled="0"
-    data-theme="noborder_light"
+    theme="preferred_color_scheme"
     inputPosition="top"
     />
 </div>
