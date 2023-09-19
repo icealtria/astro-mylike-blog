@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import * as openpgp from "openpgp";
     import { marked } from "marked";
+    import Input from "./Input.svelte";
     export let content: string;
     export let slug: string;
     let isDecrypted = false;
@@ -14,7 +15,7 @@
             password = window.atob(password);
             decrypt();
         }
-    })
+    });
 
     const decrypt = async () => {
         const message = await openpgp.readMessage({
@@ -38,15 +39,13 @@
 {#if isDecrypted}
     {@html decrypted}
 {:else}
-    <form on:submit|preventDefault={decrypt} class="input radius-40" style="text-align: center;">
-        <input
-            bind:value={password}
-            class="pl-3 rounded-3xl outline outline-1"
-            type="password"
-            placeholder="Password"
-            style="background-color: var(--color-secondary-container);"
-        />
-        <button class="bg-primary px-4 hover:bg-primary-hover py-1 rounded-full" type="submit">解密</button>
+    <form
+        on:submit|preventDefault={decrypt}
+        class="flex justify-center gap-4"
+        style="text-align: center;"
+    >
+        <Input bind:value={password} type="password" label="Password" />
+        <button class="button-primary" type="submit">解密</button>
         <noscript>Javascript is required</noscript>
     </form>
     <pre style="text-align: center">{content}</pre>

@@ -3,9 +3,9 @@ import { SITE } from "@/consts";
 import Icon from "astro-icon";
 ---
 
-<div class="bg-secondary-container rounded-3xl shadow-md">
+<div class="bg-secondary-container rounded-3xl shadow-md focus-within:bg-white transition-colors">
     <form
-        class="ddg flex p-1"
+        class="ddg flex p-1 items-center"
         name="x"
         action="https://duckduckgo.com/"
         target="_blank"
@@ -13,16 +13,16 @@ import Icon from "astro-icon";
         <input type="hidden" value={SITE.url} name="sites" />
         <input
             type="search"
-            class="pl-3 rounded-3xl w-full"
+            class="px-3 py-2 rounded-3xl w-full outline-none"
             placeholder="DuckDuckGo"
             name="q"
         />
         <button
-            class="search-button m-1 w-8 h-7"
+            class="search-button m-1 w-8 h-7 text-inverse-surface"
             type="submit"
             aria-label="Search"
         >
-            <Icon name="ri:search-line" />
+            <Icon name="ic:baseline-search" />
         </button>
     </form>
 </div>

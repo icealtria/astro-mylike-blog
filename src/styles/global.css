@@ -51,6 +51,27 @@
 	.button-xl {
 		@apply bg-tertiary-container shadow-md px-6 py-4 rounded-2xl hover:bg-tertiary-container-hover;
 	}
+
+	.input {
+		@apply p-2 outline outline-1 focus:outline-2 rounded-sm text-lg bg-transparent;
+	}
+
+	.input-label {
+		@apply mb-2 text-lg absolute top-2 left-2 transition-all pointer-events-none;
+	}
+
+	.input-wrapper {
+		@apply relative;
+	}
+
+	.input:focus~.input-label,
+	.input:valid~.input-label {
+		@apply -top-3 bg-surface px-1 text-sm
+	}
+
+	.button-primary {
+		@apply bg-primary px-4 hover:bg-primary-hover py-1 rounded-full
+	}
 }
 
 body {

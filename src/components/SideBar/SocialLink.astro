@@ -1,20 +1,17 @@
 ---
 interface Props {
   href: string;
-  title: string;
   icon: string;
-  rel: string;
   platform: string;
 }
 
-const { href, icon, rel, platform } = Astro.props;
+const { href, icon, platform } = Astro.props;
 import { Icon } from "astro-icon";
 ---
 
 <a
   class="social-link"
   href={href}
-  rel={rel}
   target="_blank"
 >
   <Icon class="h-4 w-4" name={icon} />
