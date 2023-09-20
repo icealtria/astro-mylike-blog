@@ -22,15 +22,21 @@ let sorted_posts = posts.map((post) => {
 ---
 
 <Layout title="Archive">
-  <div class="prose my-12 mx-auto">
+  <div class="my-12 mx-auto max-w-xl">
     <ul>
       {
         sorted_posts.map((post) => (
           <>
-            {post.isAnotherYear && <h3 class="bg-surface">{post.data.pubDate.getFullYear()}</h3>}
-            <li class="flex justify-between">
-              <a class="bg-surface m-0" href={`/blog/${post.slug}/`}>{post.data.title}</a>
-              <span class="m-0"><FormattedDate date={post.data.pubDate} /></span>
+            {post.isAnotherYear && (
+              <h3 class="bg-surface text-2xl font-semibold mb-1 mt-4">{post.data.pubDate.getFullYear()}</h3>
+            )}
+            <li class="bg-surface my-1 list-outside list-disc">
+              <div class="flex justify-between">
+                <a class="underline" href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                <span>
+                  <FormattedDate date={post.data.pubDate} lang="zh" />
+                </span>
+              </div>
             </li>
           </>
         ))

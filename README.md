@@ -1,9 +1,8 @@
 # Astro Mylike Blog
 
-A minimal blog template for Astro. Modified from [Blog](https://astro.build/themes/details/blog/)
+A minimal blog theme for Astro. Modified from [Blog](https://astro.build/themes/details/blog/)
 
 ![blog](/assets/blog_screenshot.webp)
-Placeholder images from [NoCopyrightGirl](https://www.pixiv.net/en/users/32548944)
 
 Features:
 
@@ -12,6 +11,7 @@ Features:
 - ✅ Sitemap support
 - ✅ RSS Feed support
 - ✅ Markdown & MDX support
+- ✅ Pagination support
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
@@ -25,7 +25,7 @@ Inside of your Astro project, you'll see the following folders and files:
 │   ├── pages/
 │   ├── scripts/
 │   ├── styles/
-|   └── consts.ts
+│   └── consts.ts
 ├── astro.config.mjs
 ├── README.md
 ├── package.json

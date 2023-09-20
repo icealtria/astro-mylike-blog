@@ -3,8 +3,8 @@
 export const SITE = {
     url: 'https://mylike-blog.vercel.app',
     title: "MyLike",
-    description: 'A simple blog template for Astro by icealtria',
-    slogan: 'A simple blog template for Astro by icealtria',
+    description: 'A simple blog theme for Astro',
+    slogan: 'A simple blog theme for Astro',
     author: "MyLike",
     postPerPage: 5,
 }
