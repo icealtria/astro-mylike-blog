@@ -3,7 +3,7 @@
 
 @layer components {
     .social-link {
-        @apply text-center py-1 flex gap-1 items-center justify-center rounded-full hover:bg-secondary-container-hover transition-colors;
+        @apply text-center py-1 flex gap-1 items-center justify-center rounded-full hover:bg-secondary transition-colors;
     }
 
     .sidebar-card {
@@ -20,7 +20,7 @@
     }
 
     .no-next {
-        @apply text-gray
+        @apply text-gray;
     }
 
     .page-active {
@@ -28,7 +28,11 @@
     }
 
     .tag {
-        @apply rounded-2xl py-1 px-2 text-sm hover:bg-secondary-container-hover transition-colors;
+        @apply rounded-2xl py-1 px-2 text-sm hover:bg-secondary transition-colors;
+    }
+
+    .hero-image {
+        @apply hidden lg:block w-64 h-40 rounded-2xl object-cover flex-shrink-0;
     }
 }
 

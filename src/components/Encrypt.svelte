@@ -3,6 +3,7 @@
     import * as openpgp from "openpgp";
     import { marked } from "marked";
     import Input from "./Input.svelte";
+    import "@/styles/encrypt.css";
     export let content: string;
     export let slug: string;
     let isDecrypted = false;
