@@ -12,8 +12,6 @@
 	.button-xl {
 		@apply bg-tertiary-container shadow-md px-6 py-4 rounded-2xl hover:bg-tertiary-container-hover;
 	}
-
-
 }
 
 body {

@@ -11,7 +11,7 @@
     }
 
     .post-summary {
-        @apply bg-white dark:bg-surface-variant hover:bg-surface-hover transition-colors shadow-md;
+        @apply bg-white dark:bg-surface-variant hover:bg-surface-hover transition-colors shadow-md flex rounded-2xl;
 
     }
 
@@ -34,8 +34,15 @@
     .hero-image {
         @apply hidden lg:block w-64 h-40 rounded-2xl object-cover flex-shrink-0;
     }
-}
 
+    .info {
+        @apply w-full px-4 pt-3 pb-2 flex flex-col;
+    }
+
+    .post-title {
+        @apply text-2xl font-semibold;
+    }
+}
 
 .profile-card img {
     transition: transform 1s cubic-bezier(0.275, 0.82, 0.265, 1);

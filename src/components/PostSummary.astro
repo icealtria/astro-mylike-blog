@@ -3,21 +3,19 @@ import FormattedDate from "./FormattedDate.astro";
 const { title, description, heroImage, slug, pubDate } = Astro.props;
 ---
 
-<a class="post-summary flex rounded-2xl" href={`/blog/${slug}/`}>
-  <div class="info w-full p-4 flex flex-col">
-    <div class="post-title text-2xl font-semibold">{title}</div>
+<a class="post-summary" href={`/blog/${slug}/`}>
+  <div class="info">
+    <div class="post-title">{title}</div>
     <p class="description grow">{description}</p>
     <span class="date text-end">
-      <FormattedDate date={pubDate} lang={"zh"} year="numeric" month="2-digit" day="numeric" />
+      <FormattedDate
+        date={pubDate}
+        lang={"zh"}
+        year="numeric"
+        month="2-digit"
+        day="numeric"
+      />
     </span>
   </div>
-  {
-    heroImage && (
-      <img
-        src={heroImage}
-        class="hero-image"
-        alt={title}
-      />
-    )
-  }
+  {heroImage && <img src={heroImage} class="hero-image" alt={title} />}
 </a>
