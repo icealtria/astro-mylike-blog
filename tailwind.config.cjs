@@ -2,7 +2,7 @@ const { withMaterialColors } = require('tailwind-material-colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = withMaterialColors({
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx}'],
 	theme: {
 		extend: {
 			gridTemplateColumns: {
@@ -13,10 +13,10 @@ module.exports = withMaterialColors({
 			},
 			maxWidth: {
 				'2xs': '18rem',
-			  },
-			  colors: {
+			},
+			colors: {
 				'gray': '#D3D3D3',
-			  }
+			}
 		}
 	},
 	plugins: [require('@tailwindcss/typography'),],
