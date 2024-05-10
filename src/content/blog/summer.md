@@ -1,6 +1,6 @@
 ---
 title: '夏日'
-description: '这是一篇加密的文章 🔑 123456789'
+description: ''
 pubDate: 'Aug 26 2023'
 heroImage: '/blog-placeholder-3.webp'
 tags: ["encrypt"]

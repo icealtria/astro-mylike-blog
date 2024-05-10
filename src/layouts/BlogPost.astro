@@ -2,8 +2,6 @@
 import type { CollectionEntry } from "astro:content";
 import "@/styles/article.css";
 import Layout from "./Layout.astro";
-import toc from "markdown-toc";
-import { marked } from "marked";
 import ArticleInfo from "@/components/ArticleInfo.astro";
 import Icon from "astro-icon";
 import Comment from "@/components/Comment.svelte";
@@ -12,7 +10,6 @@ import ArticleTags from "@/components/ArticleTags.astro";
 type Props = CollectionEntry<"blog">["data"];
 const { post } = Astro.props;
 const { title, description, heroImage, tags, password } = post.data;
-const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
 ---
 
 <Layout title={title} description={description}>
@@ -28,14 +25,6 @@ const toc_html = marked.parse(toc(post.body, { maxdepth: 2 }).content);
         <ArticleInfo slug={post.slug} {...post.data} />
         <ArticleTags tags={tags} />
       </div>
-      {
-        toc_html && !password && (
-          <details>
-            <summary>Table of Contents</summary>
-            <div class="toc" set:html={toc_html} />
-          </details>
-        )
-      }
       <slot name="content" />
     </article>
     <div class="mx-4 md:mx-8 md:py-2">
