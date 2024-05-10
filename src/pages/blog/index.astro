@@ -3,21 +3,21 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 let prev_year = 0;
 let years: number[] = [];
 let sorted_posts = posts.map((post) => {
-  const year = new Date(post.data.pubDate).getFullYear();
-  let isAnotherYear = year !== prev_year;
-  if (isAnotherYear) {
-    prev_year = year;
-    years.push(year);
-  }
-  return {
-    ...post,
-    isAnotherYear,
-  };
+	const year = new Date(post.data.pubDate).getFullYear();
+	let isAnotherYear = year !== prev_year;
+	if (isAnotherYear) {
+		prev_year = year;
+		years.push(year);
+	}
+	return {
+		...post,
+		isAnotherYear,
+	};
 });
 ---
 

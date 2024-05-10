@@ -1,12 +1,14 @@
-import rss from '@astrojs/rss';
-import { SITE } from '../consts';
-import { posts } from '@/scripts/collection-workaround';
+import rss from "@astrojs/rss";
+import { SITE } from "../consts";
+import { posts } from "@/scripts/collection-workaround";
 import { marked } from "marked";
 
 export async function GET(context) {
-	let filtered_posts = posts.sort((a, b) => {
-		return b.data.pubDate - a.data.pubDate
-	}).slice(0, 10);
+	let filtered_posts = posts
+		.sort((a, b) => {
+			return b.data.pubDate - a.data.pubDate;
+		})
+		.slice(0, 10);
 	return rss({
 		title: SITE.title,
 		description: SITE.description,
@@ -18,6 +20,6 @@ export async function GET(context) {
 			content: marked(post.body),
 			link: `/blog/${post.slug}/`,
 		})),
-		stylesheet: '/rss/styles.xsl',
+		stylesheet: "/rss/styles.xsl",
 	});
 }

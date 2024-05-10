@@ -5,8 +5,8 @@ import { posts } from "@/scripts/collection-workaround";
 import PostList from "@/components/PostList.astro";
 import Icon from "astro-icon";
 const fposts = posts
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, SITE.postPerPage);
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, SITE.postPerPage);
 const has_next = posts.length > SITE.postPerPage;
 ---
 <Home title={SITE.title} description={SITE.description}>

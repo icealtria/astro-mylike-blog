@@ -9,5 +9,10 @@
       "@layouts/*": ["src/layouts/*"],
       "@contents/*": ["src/contents/*"]
     }
-  }
+  },
+  "exclude": [
+    "../node_modules/",
+    "/node_modules/",
+    "../dist/**",    
+    ]
 }

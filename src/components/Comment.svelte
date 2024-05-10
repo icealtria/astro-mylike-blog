@@ -1,7 +1,10 @@
 <script>
-    let load = false;
-    import Giscus from "@giscus/svelte";
-    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ?  'noborder_dark' : 'noborder_light'
+let load = false;
+import Giscus from "@giscus/svelte";
+const theme =
+	document.documentElement.getAttribute("data-theme") === "dark"
+		? "noborder_dark"
+		: "noborder_light";
 </script>
 
 

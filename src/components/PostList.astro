@@ -1,21 +1,21 @@
 ---
 import PostSummary from "./PostSummary.astro";
 export interface Props {
-  posts: {
-    id: string;
-    slug: string;
-    body: string;
-    collection: "blog";
-    data: {
-      title: string;
-      description: string;
-      pubDate: Date;
-      updatedDate?: Date | undefined;
-      heroImage?: string | undefined;
-      tags?: string[] | undefined;
-      draft?: boolean | undefined;
-    };
-  }[];
+	posts: {
+		id: string;
+		slug: string;
+		body: string;
+		collection: "blog";
+		data: {
+			title: string;
+			description: string;
+			pubDate: Date;
+			updatedDate?: Date | undefined;
+			heroImage?: string | undefined;
+			tags?: string[] | undefined;
+			draft?: boolean | undefined;
+		};
+	}[];
 }
 const { posts } = Astro.props;
 ---
