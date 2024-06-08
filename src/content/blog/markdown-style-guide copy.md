@@ -2,7 +2,7 @@
 title: 'Markdown 风格指南'
 description: '以下是在 Astro 中编写 Markdown 内容时可以使用的一些基本 Markdown 语法的示例。'
 pubDate: 'Jul 01 2023'
-heroImage: '/blog-placeholder-1.webp'
+heroImage: '/src/images/blog-placeholder-1.webp'
 tags: ["markdown", "guideline"]
 ---
 
@@ -33,7 +33,7 @@ Xerum，我尝试由谁或如何解释谁在痛苦。当我来到你身边，当
 
 #### Output
 
-![blog placeholder](/blog-placeholder-about.jpg)
+![blog placeholder](/src/images/blog-placeholder-about.jpg)
 ## 块引用
 
 blockquote 元素表示从其他来源引用的内容，可选地带有必须位于`footer`或`cite`元素内的引文，并且可选地带有行内更改（例如注释和缩写）。

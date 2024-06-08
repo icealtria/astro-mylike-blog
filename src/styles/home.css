@@ -3,7 +3,7 @@
 
 @layer components {
     .social-link {
-        @apply text-center py-1 flex gap-1 items-center justify-center rounded-full hover:bg-secondary transition-colors;
+        @apply text-center py-1 flex gap-1 items-center justify-center rounded-full hover:bg-primary transition-colors;
     }
 
     .sidebar-card {
@@ -28,7 +28,7 @@
     }
 
     .tag {
-        @apply rounded-2xl py-1 px-2 text-sm hover:bg-secondary transition-colors;
+        @apply rounded-lg py-1 px-2 text-sm hover:bg-primary transition-colors;
     }
 
     .hero-image {
@@ -45,9 +45,9 @@
 }
 
 .profile-card img {
-    transition: transform 1s cubic-bezier(0.275, 0.82, 0.265, 1);
+    transition: transform .3s cubic-bezier(0.275, 0.82, 0.265, 1);
 }
 
 .profile-card img:hover {
-    transform: rotate(360deg);
+    transform: rotate(20deg);
 }

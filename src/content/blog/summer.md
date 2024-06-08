@@ -2,7 +2,7 @@
 title: '夏日'
 description: ''
 pubDate: 'Aug 26 2023'
-heroImage: '/blog-placeholder-3.webp'
+heroImage: '/src/images/blog-placeholder-3.webp'
 tags: ["encrypt"]
 password: '123456789'
 ---

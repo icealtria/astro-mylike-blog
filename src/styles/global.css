@@ -9,22 +9,27 @@
 		@apply px-4 py-2 rounded-3xl hover:shadow hover:bg-secondary-container-hover transition-shadow mx-1 md:mx-4;
 	}
 
+	.header-link svg {
+		@apply w-5 h-5 inline-block;
+	}
+
 	.button-xl {
 		@apply bg-tertiary-container shadow-md px-6 py-4 rounded-2xl hover:bg-tertiary-container-hover;
 	}
 
-    article {
-        @apply mt-12 prose lg:prose-xl prose-p:my-4 mx-auto dark:prose-invert prose-headings:font-medium;
-    }
+	article {
+		@apply mt-12 prose lg:prose-lg lg:max-w-3xl prose-p:my-4 mx-auto dark:prose-invert prose-headings:font-medium break-words;
+	}
+
+	h1 {
+		@apply text-5xl
+	}
+
+	h2, h3, h4, h5, h6 {
+		@apply mb-4;
+	}
 }
 
 body {
 	font-family: 'Noto Sans', 'Noto Sans SC', sans-serif;
-}
-
-.header-link svg {
-	display: inline-block;
-	width: 1.2rem;
-	height: 1.2rem;
-	/* vertical-align: -0.3rem; */
 }

@@ -1,6 +1,9 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import BlogPost from "@layouts/BlogPost.astro";
+import ArticleInfo from "@/components/ArticleInfo.astro";
+import ArticleTags from "@/components/ArticleTags.astro";
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
 	return posts.map((post) => ({
@@ -12,9 +15,32 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
+const { title, description, heroImage, tags } = post.data;
+
 const { Content } = await post.render();
 ---
 
-<BlogPost {post}>
-  <Content slot="content" />
-</BlogPost>
+<Layout title={title} description={description} ogimage={heroImage?.src}>
+	<main class="max-w-4xl mx-auto rounded-2xl">
+		{
+			heroImage && (
+				<Image
+					src={heroImage}
+					class="w-full rounded-2xl shadow-xl"
+					alt={`img of ${title}`}
+					loading="eager"
+					format="webp"
+					width={1000}
+				/>
+			)
+		}
+		<article>
+			<div>
+				<h1 class="mb-0">{title}</h1>
+				<ArticleInfo slug={post.slug} {...post.data} />
+				<ArticleTags tags={tags} />
+			</div>
+			<Content />
+		</article>
+	</main>
+</Layout>

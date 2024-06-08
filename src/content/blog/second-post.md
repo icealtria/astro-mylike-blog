@@ -2,7 +2,7 @@
 title: 'Second post'
 description: 'Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet'
 pubDate: 'Jul 22 2021'
-# heroImage: '/blog-placeholder-4.webp'
+# heroImage: '/src/images/blog-placeholder-4.webp'
 tags: ['second', 'exemple']
 ---
 

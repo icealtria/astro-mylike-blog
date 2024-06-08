@@ -1,16 +1,20 @@
 ---
 import SocialLink from "./SocialLink.astro";
-
-const avatar = "/images/avatar.webp";
+import { Image } from "astro:assets";
 import { SITE } from "@/consts";
+import avatar from "src/images/avatar.webp";
 ---
 
 <div class="sidebar-card profile-card">
   <!-- <img src={avatar} alt="avatar" /> -->
-  <img
-    class="avatar w-24 h-24 rounded-full my-2 mx-auto"
+  <Image
     src={avatar}
+    class="avatar w-24 h-24 rounded-full my-2 mx-auto"
+    draggable="false"
     alt="avatar"
+    height=256
+    width=256
+    loading="eager"
   />
   <div class="name text-2xl mt-4 font-semibold text-center">{SITE.author}</div>
   <div class="slogan my-2 text-center">{SITE.slogan}</div>

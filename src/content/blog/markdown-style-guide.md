@@ -2,7 +2,7 @@
 title: 'Markdown Style Guide'
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
 pubDate: 'Jul 01 2022'
-heroImage: '/blog-placeholder-4.webp'
+heroImage: '/src/images/blog-placeholder-4.webp'
 ---
 
 Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
@@ -33,7 +33,7 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 #### Output
 
-![blog placeholder](/blog-placeholder-about.jpg)
+![blog placeholder](/src/images/blog-placeholder-about.jpg)
 ## Blockquotes
 
 The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
