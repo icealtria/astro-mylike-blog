@@ -20,6 +20,5 @@ export async function GET(context) {
 			content: marked(post.body),
 			link: `/blog/${post.slug}/`,
 		})),
-		stylesheet: "/rss/styles.xsl",
 	});
 }
