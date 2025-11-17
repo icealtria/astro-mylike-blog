@@ -1,11 +1,48 @@
-@tailwind components;
+p {
+    text-spacing-trim: trim-start;
+    word-break: auto-phrase;
+}
 
-@layer components {
-    .tags {
-        @apply flex text-sm gap-2 mb-8;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    .tag {
-        @apply font-light rounded hover:bg-surface-variant-hover transition-colors;
-    }
+.tag {
+    @apply hover:bg-surface-container
+}
+
+h1, h2 , h3, h4, h5, h6 {
+    @apply text-on-surface-bright!;
+}
+
+.hero-image {
+    @apply w-full rounded-2xl shadow-md;
+}
+
+.tags {
+    @apply flex text-sm gap-2 mb-8;
+}
+
+.tag {
+    @apply font-light rounded hover:bg-surface-variant-hover transition-colors;
+}
+
+li {
+    @apply my-1 first:mt-0;
+}
+
+ul {
+    @apply my-4 first:mt-0 last:mb-0;
+}
+
+ol {
+    @apply my-4;
+}
+
+h3 {
+    @apply mt-6;
+}
+
+.hidden-text {
+    @apply line-through bg-gray text-gray hover:bg-background transition-colors;
 }

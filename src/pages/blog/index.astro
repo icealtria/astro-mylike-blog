@@ -1,43 +1,61 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
-const posts = (await getCollection("blog")).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+import { posts as all_posts } from "@/utils/post";
+const posts = all_posts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 let prev_year = 0;
 let years: number[] = [];
 let sorted_posts = posts.map((post) => {
-	const year = new Date(post.data.pubDate).getFullYear();
-	let isAnotherYear = year !== prev_year;
-	if (isAnotherYear) {
-		prev_year = year;
-		years.push(year);
-	}
-	return {
-		...post,
-		isAnotherYear,
-	};
+  const year = new Date(post.data.pubDate).getFullYear();
+  let isAnotherYear = year !== prev_year;
+  if (isAnotherYear) {
+    prev_year = year;
+    years.push(year);
+  }
+  return {
+    ...post,
+    isAnotherYear,
+  };
 });
 ---
 
 <Layout title="Archive">
-  <div class="my-12 mx-auto max-w-xl">
-    <ul>
+  <div class="my-12 mx-auto max-w-2xl">
+    <ul class="list-none space-y-4">
       {
         sorted_posts.map((post) => (
           <>
             {post.isAnotherYear && (
-              <h3 class="bg-surface text-2xl font-semibold mb-1 mt-4">{post.data.pubDate.getFullYear()}</h3>
+              <h3 class="text-4xl font-extralight text-primary/80 mb-6 mt-12 px-2 border-b border-primary/20 pb-2">
+                {post.data.pubDate.getFullYear()}
+              </h3>
             )}
-            <li class="bg-surface my-1 list-outside list-disc">
-              <div class="flex justify-between">
-                <a class="underline" href={`/blog/${post.slug}/`}>{post.data.title}</a>
-                <span>
-                  <FormattedDate date={post.data.pubDate} lang="zh" />
-                </span>
-              </div>
-            </li>
+            <a
+              href={`/blog/${post.slug}/`}
+              class="block transition-all duration-300 group"
+              style=`view-transition-name: t${post.slug}`
+            >
+              <li
+                class="bg-white rounded-xl p-4 transition-all border"
+              >
+                <div class="flex justify-between items-center gap-4">
+                  <span class="text-lg group-hover:text-primary transition-colors">
+                    {post.data.title}
+                  </span>
+                  <span class="text-sm tabular-nums text-black/75">
+                    <FormattedDate
+                      date={post.data.pubDate}
+                      lang="zh"
+                      year="2-digit"
+                      month="2-digit"
+                      day="2-digit"
+                    />
+                  </span>
+                </div>
+              </li>
+            </a>
           </>
         ))
       }

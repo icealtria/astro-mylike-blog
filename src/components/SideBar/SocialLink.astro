@@ -1,21 +1,27 @@
 ---
 interface Props {
-  href: string;
-  icon: string;
-  platform: string;
+    href: string;
+    icon: string;
+    platform: string;
 }
 
 const { href, icon, platform } = Astro.props;
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 ---
 
 <a
-  class="social-link"
-  href={href}
-  target="_blank"
+    class="social-link text-center py-1 flex gap-1 items-center justify-center"
+    href={href}
+    target="_blank"
 >
-  <Icon class="h-4 w-4" name={icon} />
-  <span class="platform">
-    {platform}
-  </span>
+    <Icon class="h-5 w-5" name={icon} />
+    <span class="platform">
+        {platform}
+    </span>
 </a>
+
+<style>
+    .social-link {
+        @apply rounded-full hover:bg-primary hover:text-on-primary transition-colors;
+    }
+</style>

@@ -1,28 +1,27 @@
 ---
 import { SITE } from "../consts";
 import Home from "@/layouts/Home.astro";
-import { posts } from "@/scripts/collection-workaround";
+import { posts } from "@/utils/post";
 import PostList from "@/components/PostList.astro";
-import Icon from "astro-icon";
+import { Icon } from "astro-icon/components";
 const fposts = posts
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, SITE.postPerPage);
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, SITE.postPerPage);
 const has_next = posts.length > SITE.postPerPage;
 ---
+
 <Home title={SITE.title} description={SITE.description}>
   <PostList posts={fposts} />
   <div class="flex justify-end">
     {
       has_next ? (
         <a
-          class="button-xl"
-          href="/page/2"
+          class="bg-tertiary-container text-on-tertiary-container hover:bg-tertiary-container-hover rounded-full px-4 py-2 shadow-md"
+          href="/page/2/"
         >
-          <div class="flex gap-1">
-            <span class="w-6 h-6">
-              <Icon name="ic:baseline-article" />
-            </span>
-            <span>更多文章</span>
+          <div class="flex items-center gap-1">
+            <span>More</span>
+            <Icon name="ic:round-arrow-forward-ios" />
           </div>
         </a>
       ) : null

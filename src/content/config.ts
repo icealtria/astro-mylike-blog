@@ -1,10 +1,10 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z } from 'astro:content';
 
 const blog = defineCollection({
 	// Type-check frontmatter using a schema
 	schema: ({ image }) => z.object({
 		title: z.string(),
-		description: z.string(),
+		description: z.string().optional(),
 		// Transform string to Date object
 		pubDate: z
 			.string()
@@ -19,7 +19,19 @@ const blog = defineCollection({
 		draft: z.boolean().optional(),
 		author: z.string().optional(),
 		license: z.string().optional(),
+		encrypted: z.boolean().optional(),
 	}),
 });
 
-export const collections = { blog };
+const comments = defineCollection({
+	schema: z.object({
+		id: z.number(),
+		name: z.string(),
+		contact: z.string().optional(),
+		url: z.string().optional(),
+		date: z.coerce.date(),
+		replyTo: z.coerce.number().optional(),
+	})
+});
+
+export const collections = { blog, comments };

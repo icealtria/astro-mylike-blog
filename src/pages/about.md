@@ -1,15 +1,9 @@
 ---
-import Layout from "@layouts/Page.astro";
-import "@/styles/article.css";
+layout: ../layouts/Page.astro
+title: About
+slug: about
 ---
-
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage="/src/images/blog-placeholder-about.jpg"
->
-	<p>
+<p>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
 		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
@@ -19,7 +13,7 @@ import "@/styles/article.css";
 		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
 	</p>
 
-	<p>
+<p>
 		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
 		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
 		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
@@ -29,11 +23,10 @@ import "@/styles/article.css";
 		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
 		massa massa ultricies mi.
 
-	<p>
+<p>
 		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
 		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
 		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
 		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
 		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+</p>

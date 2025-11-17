@@ -4,10 +4,11 @@ interface Props {
   year?: "numeric" | "2-digit";
   month?: "long" | "short" | "narrow" | "numeric" | "2-digit";
   day?: "numeric" | "2-digit";
+  weekday?: "long" | "short" | "narrow";
   lang?: Intl.LocalesArgument;
 }
 
-const { date, year, month, day, lang } = Astro.props;
+const { date, year, month, day, lang, weekday } = Astro.props;
 ---
 
 <time datetime={date.toISOString()}>
@@ -16,6 +17,7 @@ const { date, year, month, day, lang } = Astro.props;
       year,
       month,
       day,
+      weekday,
     })
   }
 </time>

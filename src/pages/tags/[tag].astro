@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@/layouts/TwoCol.astro";
-import { getTagsInfo } from "@/scripts/tags";
+import { getTagsInfo } from "@/utils/tags";
 import TagsCard from "@/components/SideBar/TagsCard.astro";
 export async function getStaticPaths() {
 	const tags = Array.from(getTagsInfo()).map(([tag, _count]) => tag);
@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.params;
-import { posts } from "@/scripts/collection-workaround";
+import { posts } from "@/utils/post";
 import PostList from "@/components/PostList.astro";
 const filtered_posts = posts.filter((post) => {
 	return post.data.tags?.includes(tag);
@@ -20,7 +20,7 @@ const filtered_posts = posts.filter((post) => {
   <div class="order-0 md:order-2 w-full">
     <PostList posts={filtered_posts} />
   </div>
-  <div class="sidebar w-full md:max-w-xs">
+  <div class="sidebar w-full md:max-w-2xs">
     <TagsCard />
   </div>
 </BaseLayout>

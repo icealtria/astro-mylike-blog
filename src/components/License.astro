@@ -1,0 +1,81 @@
+---
+interface LicenseInfo {
+  name: string;
+  url: string | null;
+  description: string;
+}
+
+import { Icon } from "astro-icon/components";
+
+const licenseMap: Record<string, LicenseInfo> = {
+  "CC BY": {
+    name: "知识共享署名",
+    url: "https://creativecommons.org/licenses/by/4.0/",
+    description: "本作品采用知识共享署名 (CC BY) 协议进行许可。",
+  },
+  "CC BY-SA": {
+    name: "知识共享署名-相同方式共享",
+    url: "https://creativecommons.org/licenses/by-sa/4.0/",
+    description:
+      "本作品采用知识共享署名-相同方式共享 (CC BY-SA) 协议进行许可。",
+  },
+  "CC BY-NC": {
+    name: "知识共享署名-非商业性使用",
+    url: "https://creativecommons.org/licenses/by-nc/4.0/",
+    description:
+      "本作品采用知识共享署名-非商业性使用 (CC BY-NC) 协议进行许可。",
+  },
+  "CC BY-ND": {
+    name: "知识共享署名-禁止演绎",
+    url: "https://creativecommons.org/licenses/by-nd/4.0/",
+    description: "本作品采用知识共享署名-禁止演绎 (CC BY-ND) 协议进行许可。",
+  },
+  "CC BY-NC-SA": {
+    name: "知识共享署名-非商业性使用-相同方式共享",
+    url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    description:
+      "本作品采用知识共享署名-非商业性使用-相同方式共享 (CC BY-NC-SA) 协议进行许可。",
+  },
+  "CC BY-NC-ND": {
+    name: "知识共享署名-非商业性使用-禁止演绎",
+    url: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    description:
+      "本作品采用知识共享署名-非商业性使用-禁止演绎 (CC BY-NC-ND) 协议进行许可。",
+  },
+  ARR: {
+    name: "All Rights Reserved",
+    url: null,
+    description: "本作品受版权法保护，保留所有权利。",
+  },
+};
+
+interface Props {
+  license?: string;
+}
+
+const { license = "CC BY-NC-SA" } = Astro.props;
+const licenseInfo = licenseMap[license] || null;
+
+function generateHtml(
+  description: string,
+  license: string,
+  url: string | null,
+) {
+  if (!url) return description;
+  const link = `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline dark:text-blue-400">${license}</a>`;
+  return description.replace(license, link);
+}
+---
+
+<div>
+  <div class="-mx-12 mt-12 border rounded-lg p-2 flex gap-2 items-center">
+    {licenseInfo ? (
+    <Icon name="ri:creative-commons-line" class="h-5 w-5" />
+    <span
+      set:html={generateHtml(licenseInfo.description, license, licenseInfo.url)}
+    />
+    ) : (
+    <p class="text-red-600">提供的许可协议无效。</p>
+    )}
+  </div>
+</div>

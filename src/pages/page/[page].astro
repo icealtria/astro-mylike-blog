@@ -1,57 +1,78 @@
 ---
-import { posts } from "@/scripts/collection-workaround";
+import { posts } from "@/utils/post";
 import Home from "@/layouts/Home.astro";
 import { SITE } from "@/consts";
 import PostList from "@/components/PostList.astro";
-import Icon from "astro-icon";
-export async function getStaticPaths({ paginate }) {
-	const sorted_posts = posts.sort(
-		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-	);
-	return paginate(sorted_posts, { pageSize: SITE.postPerPage });
+import { Icon } from "astro-icon/components";
+import type { GetStaticPathsOptions } from "astro";
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+    const sorted_posts = posts.sort(
+        (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+    );
+    return paginate(sorted_posts, {
+        pageSize: SITE.postPerPage,
+    });
 }
 const { page } = Astro.props;
 ---
 
 <Home
-  title={`第 ${page.currentPage} 页 - ${SITE.title}`}
-  description={SITE.description}
+    title={`第 ${page.currentPage} 页 - ${SITE.title}`}
+    description={SITE.description}
 >
-  <PostList posts={page.data} />
-  <div class="pagination flex justify-between mt-4">
-    <div class="prev">
-      <a
-        href={page.url.prev}
-        class:list={[{"pointer-events-none no-next": !page.url.prev}, "pagination-item"]}
-        ><Icon name="ic:baseline-chevron-left" /></a
-      >
-    </div>
-
-    <div class="page-numbers flex gap-4">
-      {
-        Array.from({ length: page.lastPage }, (_, index) => {
-          const pageNumber = index + 1;
-          return (
+    <PostList posts={page.data} />
+    <div class="pagination flex justify-between mt-4">
+        <div class="prev">
             <a
-              href={`${pageNumber}`}
-              class:list={[
-                "pagination-item",
-                pageNumber === page.currentPage ? "page-active" : "",
-              ]}
+                href={`${page.url.prev}/`}
+                class:list={[{ "no-next": !page.url.prev }, "pagination-item"]}
+                ><Icon name="ic:baseline-chevron-left" /></a
             >
-              {pageNumber}
-            </a>
-          );
-        })
-      }
-    </div>
+        </div>
 
-    <div class="next">
-      <a
-        href={page.url.next}
-        class:list={[{"pointer-events-none no-next": !page.url.next}, "pagination-item"]}
-        ><Icon name="ic:baseline-chevron-right" /></a
-      >
+        <div class="page-numbers flex gap-4">
+            {
+                Array.from({ length: page.lastPage }, (_, index) => {
+                    const pageNumber = index + 1;
+                    return (
+                        <a
+                            href={`/page/${pageNumber}/`}
+                            class:list={[
+                                "pagination-item",
+                                pageNumber === page.currentPage
+                                    ? "page-active"
+                                    : "",
+                            ]}
+                        >
+                            {pageNumber}
+                        </a>
+                    );
+                })
+            }
+        </div>
+
+        <div class="next">
+            <a
+                href={`${page.url.next}/`}
+                class:list={[
+                    { "pointer-events-none no-next": !page.url.next },
+                    "pagination-item",
+                ]}><Icon name="ic:baseline-chevron-right" /></a
+            >
+        </div>
     </div>
-  </div>
 </Home>
+
+<style>
+    .pagination-item {
+        @apply w-8 h-8 font-semibold bg-surface-container-lowest hover:bg-surface-container-lowest-hover transition-colors flex items-center justify-center align-middle rounded-lg shadow-md;
+    }
+
+    .no-next {
+        @apply text-gray-500;
+    }
+
+    .page-active {
+        @apply bg-tertiary-container text-on-tertiary-container;
+    }
+</style>

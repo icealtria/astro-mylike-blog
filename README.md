@@ -2,7 +2,7 @@
 
 A minimal blog theme for Astro. Modified from [Blog](https://astro.build/themes/details/blog/)
 
-![blog](/assets/blog_screenshot.webp)
+![blog](/assets/blog_screenshot.png)
 
 Features:
 

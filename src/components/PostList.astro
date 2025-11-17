@@ -1,38 +1,22 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import PostSummary from "./PostSummary.astro";
-export interface Props {
-  posts: {
-    id: string;
-    slug: string;
-    body: string;
-    collection: "blog";
-    data: {
-      title: string;
-      description: string;
-      pubDate: Date;
-      updatedDate?: Date | undefined;
-      heroImage?: string | undefined;
-      tags?: string[] | undefined;
-      draft?: boolean | undefined;
-    };
-  }[];
+interface Props {
+  posts: CollectionEntry<"blog">[];
 }
 const { posts } = Astro.props;
 ---
 
-<ul>
-  {
-    posts.map((post) => (
-      <li class="mb-2">
-        <PostSummary
-          title={post.data.title}
-          description={post.data.description}
-          slug={post.slug}
-          pubDate={post.data.pubDate}
-          heroImage={post.data.heroImage}
-          tags={post.data.tags}
-        />
-      </li>
-    ))
-  }
-</ul>
+{
+  posts.map((post, index) => (
+    <PostSummary
+      title={post.data.title}
+      description={post.data.description}
+      slug={post.slug}
+      pubDate={post.data.pubDate}
+      heroImage={post.data.heroImage}
+      tags={post.data.tags}
+      index={index}
+    />
+  ))
+}

@@ -1,43 +1,64 @@
 ---
-import SocialLink from "./SocialLink.astro";
 import { Image } from "astro:assets";
+import SocialLink from "./SocialLink.astro";
+
 import { SITE } from "@/consts";
-import avatar from "src/images/avatar.webp";
+
+import avatar from "@/images/avatar.jpg";
 ---
 
 <div class="sidebar-card profile-card">
-  <!-- <img src={avatar} alt="avatar" /> -->
-  <Image
-    src={avatar}
-    class="avatar w-24 h-24 rounded-full my-2 mx-auto"
-    draggable="false"
-    alt="avatar"
-    height=96
-    width=96
-    loading="eager"
-  />
-  <div class="name text-2xl mt-4 font-semibold text-center">{SITE.author}</div>
-  <div class="slogan my-2 text-center">{SITE.slogan}</div>
-  <div class="social-links grid grid-cols-2 gap-4 mt-6">
-    <SocialLink
-      href="https://github.com/icealtria/astro-mylike-blog"
-      icon="ri:github-fill"
-      platform="Github"
-    />
-    <SocialLink
-      href="https://mastodon.social/"
-      icon="ri:mastodon-fill"
-      platform="Mastodon"
-    />
-    <SocialLink
-      href="mailto:me@example.com"
-      icon="ri:mail-fill"
-      platform="Email"
-    />
-    <SocialLink
-      href="https://t.me/telegram"
-      icon="ri:telegram-fill"
-      platform="Telegram"
-    />
-  </div>
+    <div class="avatar-container my-2 w-fit mx-auto rounded-full">
+        <Image
+            class="avatar"
+            draggable="false"
+            width={256}
+            height={256}
+            src={avatar}
+            alt="avatar"
+            loading="eager"
+            format="avif"
+        />
+    </div>
+    <h1 class="name text-2xl mt-4 font-semibold text-center">
+        {SITE.author}
+    </h1>
+    <div class="slogan my-2 text-center">{SITE.slogan}</div>
+    <div class="grid grid-cols-2 gap-4 mt-6">
+        <SocialLink
+            href="https://github.com/icealtria"
+            icon="ri:github-fill"
+            platform="Github"
+        />
+        <SocialLink
+            href="https://icealtria.bsky.social"
+            icon="ri:bluesky-fill"
+            platform="Bluesky"
+        />
+        <SocialLink
+            href="https://icealtria.github.io/digital-garden/"
+            icon="ri:book-fill"
+            platform="Notes"
+        />
+        <SocialLink
+            href="https://keys.openpgp.org/vks/v1/by-fingerprint/8BA97C7CA03CA9ABD3B5A0A89597360E8CC9805E"
+            icon="ri:key-2-fill"
+            platform="Public Key"
+        />
+    </div>
 </div>
+
+<style>
+    .profile-card {
+        perspective: 1000px;
+    }
+
+    .avatar-container img {
+        transition: transform 0.6s cubic-bezier(0.275, 0.82, 0.265, 1);
+        transform-style: preserve-3d;
+    }
+
+    .avatar-container:hover img {
+        transform: rotateY(180deg);
+    }
+</style>

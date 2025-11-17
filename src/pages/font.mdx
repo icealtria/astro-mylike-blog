@@ -1,0 +1,54 @@
+---
+layout: ../layouts/Page.astro
+title: 字体测试页
+slug: font
+---
+<div className="space-y-4">
+  <div className="font-weight-thin">我能吞下玻璃而不伤身体 (Thin)</div>
+  <div className="font-weight-extralight">我能吞下玻璃而不伤身体 (Extra Light)</div>
+  <div className="font-weight-light">我能吞下玻璃而不伤身体 (Light)</div>
+  <div className="font-weight-normal">我能吞下玻璃而不伤身体 (Normal)</div>
+  <div className="font-weight-medium">我能吞下玻璃而不伤身体 (Medium)</div>
+  <div className="font-weight-semibold">我能吞下玻璃而不伤身体 (Semi Bold)</div>
+  <div className="font-weight-bold">我能吞下玻璃而不伤身体 (Bold)</div>
+  <div className="font-weight-extrabold">我能吞下玻璃而不伤身体 (Extra Bold)</div>
+  <div className="font-weight-black">我能吞下玻璃而不伤身体 (Black)</div>
+
+  <div className="font-serif">我能吞下玻璃而不伤身体 (Serif)</div>
+  <div className="font-sans">我能吞下玻璃而不伤身体 (Sans-serif)</div>
+  <div className="font-mono">我能吞下玻璃而不伤身体 (Monospace)</div>
+
+  <div style={{ fontSize: '12px' }}>我能吞下玻璃而不伤身体 (12px)</div>
+  <div style={{ fontSize: '16px' }}>我能吞下玻璃而不伤身体 (16px)</div>
+  <div style={{ fontSize: '24px' }}>我能吞下玻璃而不伤身体 (24px)</div>
+  <div style={{ fontSize: '36px' }}>我能吞下玻璃而不伤身体 (36px)</div>
+
+  <div>English: The quick brown fox jumps over the lazy dog.</div>
+  <div>中文: 我能吞下玻璃而不伤身体。</div>
+  <div>日本語: 私はガラスを食べられます。それは私を傷つけません。</div>
+  <div>العربية: أنا قادر على أكل الزجاج دون أن يؤلمني.</div>
+
+  <div style={{ color: '#000' }}>黑色文字</div>
+  <div style={{ color: '#fff', backgroundColor: '#000' }}>白色文字，黑色背景</div>
+  <div style={{ color: '#ff0000' }}>红色文字</div>
+  
+  试试text-autospace
+</div>
+
+<style>
+{`
+  .font-weight-thin { font-weight: 100; }
+  .font-weight-extralight { font-weight: 200; }
+  .font-weight-light { font-weight: 300; }
+  .font-weight-normal { font-weight: 400; }
+  .font-weight-medium { font-weight: 500; }
+  .font-weight-semibold { font-weight: 600; }
+  .font-weight-bold { font-weight: 700; }
+  .font-weight-extrabold { font-weight: 800; }
+  .font-weight-black { font-weight: 900; }
+  .font-serif { font-family: serif; }
+  .font-sans { font-family: sans-serif; }
+  .font-mono { font-family: monospace; }
+  .space-y-4 > * + * { margin-top: 1rem; }
+`}
+</style>

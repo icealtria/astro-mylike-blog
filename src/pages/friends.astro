@@ -1,34 +1,32 @@
 ---
 import BaseLayout from "@/layouts/Layout.astro";
 import FriendCard from "@components/FriendCard.astro";
-import "@/styles/friends.css";
+import Akarin from "@/images/Akarin.png";
 ---
 
-<BaseLayout title="友情链接">
-  <div class="mx-auto max-w-7xl grid grid-cols-fill gap-4 mt-12">
-    <FriendCard
-      avatar="/images/avatar.webp"
-      name="icealtria"
-      url="https://github.com/"
-      desc="无人爱苦，亦无人寻之欲之，乃因其苦..."
-    />
-    <FriendCard
-      avatar="/blog-placeholder-3.webp"
-      name="icealtria"
-      url="https://github.com/"
-      desc="敏捷的棕色狐狸跳过了懒狗。"
-    />
-    <FriendCard
-      avatar="/blog-placeholder-5.webp"
-      name="icealtria"
-      url="https://github.com/"
-      desc="The quick brown fox jumps over the lazy dog"
-    />
-    <FriendCard
-      avatar="/blog-placeholder-4.webp"
-      name="icealtria"
-      url="https://github.com/"
-      desc="我能吞下玻璃而不伤身体。"
-    />
-  </div>
+<BaseLayout title="友情链接" slug="friends">
+    <div class="mx-auto max-w-7xl grid grid-cols-fill gap-4 mt-12">
+        <FriendCard
+            name="Akarin"
+            avatar={Akarin}
+            url="https://forms.gle/NbggsKMK6a5SKmjR6"
+            desc="空空如也，谁来当第一个小可爱.."
+        /><FriendCard
+            name="Akarin"
+            avatar={Akarin}
+            url="https://forms.gle/NbggsKMK6a5SKmjR6"
+            desc="空空如也，谁来当第一个小可爱.."
+        /><FriendCard
+            name="Akarin"
+            avatar={Akarin}
+            url="https://forms.gle/NbggsKMK6a5SKmjR6"
+            desc="空空如也，谁来当第一个小可爱.."
+        />
+    </div>
 </BaseLayout>
+
+<style>
+    .grid-cols-fill {
+        grid-template-columns: repeat(auto-fit, minmax(32ch, 1fr));
+    }
+</style>

@@ -3,7 +3,10 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import ArticleInfo from "@/components/ArticleInfo.astro";
 import ArticleTags from "@/components/ArticleTags.astro";
 import Layout from "@/layouts/Layout.astro";
+import Licence from "@/components/License.astro";
 import { Image } from "astro:assets";
+import "@/styles/article.css";
+import Encrypt from "@/components/Encrypt.svelte";
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
 	return posts.map((post) => ({
@@ -15,32 +18,45 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
-const { title, description, heroImage, tags } = post.data;
+const { title, description, heroImage, tags, license, encrypted } = post.data;
 
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 ---
 
-<Layout title={title} description={description} ogimage={heroImage?.src}>
-	<main class="max-w-4xl mx-auto rounded-2xl">
+<Layout
+title={title}
+description={description}
+ogimage={heroImage?.src}
+slug={post.slug}
+>
+	<main class="max-w-5xl mx-auto rounded-2xl bg-surface-bright">
 		{
 			heroImage && (
 				<Image
 					src={heroImage}
-					class="w-full rounded-2xl shadow-xl"
+					class="hero-image"
 					alt={`img of ${title}`}
 					loading="eager"
-					format="webp"
+					format="avif"
 					width={1000}
+					style=`view-transition-name: h${post.slug}`
 				/>
 			)
 		}
-		<article>
+		<article class="prose lg:prose-lg mx-auto mt-4 text-on-surface-bright">
 			<div>
-				<h1 class="mb-0">{title}</h1>
 				<ArticleInfo slug={post.slug} {...post.data} />
 				<ArticleTags tags={tags} />
 			</div>
-			<Content />
+			<div>
+				{
+					encrypted ?
+					<Encrypt client:visible content={post.body} slug={post.slug}  />
+					:
+					<Content />
+				}
+			</div>
+			<Licence license={license} />
 		</article>
 	</main>
-</Layout>
+</Layout> 

@@ -1,9 +1,10 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
 
-type Props = HTMLAttributes<"a">;
+type Props = HTMLAttributes<"a"> & { icon?: string };
 
-const { href, ...props } = Astro.props;
+const { href, icon, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
 const isActive = href === pathname || href === pathname.replace(/\/$/, "");
@@ -11,11 +12,24 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 
 <a
   href={href}
-  class:list={[
-    { active: isActive },
-    "header-link flex items-center gap-1",
-  ]}
+  class:list={[{ active: isActive }, "header-link flex items-center"]}
   {...props}
+  data-astro-prefetch
 >
+  {icon && <Icon name={icon} is:inline />}
   <slot />
 </a>
+
+<style>
+  .header-link {
+    @apply m-0 rounded-full transition-colors text-on-surface;
+  }
+
+  /* .header-link svg {
+    @apply sm:inline-block hidden;
+  } */
+
+  .active {
+    @apply text-on-secondary-container;
+  }
+</style>

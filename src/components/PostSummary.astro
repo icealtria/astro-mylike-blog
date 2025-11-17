@@ -1,20 +1,22 @@
 ---
 import { Image } from "astro:assets";
 import FormattedDate from "./FormattedDate.astro";
-const { title, description, heroImage, slug, pubDate } = Astro.props;
+const { title, description, heroImage, slug, pubDate, index } = Astro.props;
+import { Icon } from "astro-icon/components";
 ---
 
-<a class="post-summary" href={`/blog/${slug}/`}>
-  <div class="info">
-    <div class="post-title">{title}</div>
-    <p class="description grow">{description}</p>
-    <span class="date text-end">
+<a class="mb-2 bg-surface-container-lowest dark:bg-surface-container-high hover:bg-surface-container-lowest-hover text-on-surface transition-colors shadow-md flex rounded-2xl" href={`/blog/${slug}/`} data-astro-prefetch>
+  <div class="w-full px-4 pt-3 pb-2 flex flex-col" style=`view-transition-name: t${slug}`>
+    <div class="text-lg sm:text-2xl font-bold">{title}</div>
+    <p class="text-sm sm:text-base grow">{description}</p>
+    <span class="text-end">
+      <Icon name="ic:baseline-calendar-month" class="inline-block mb-1" />
       <FormattedDate
         date={pubDate}
-        lang={"zh"}
-        year="2-digit"
-        month="2-digit"
-        day="2-digit"
+        lang={"ja-JP"}
+        year="numeric"
+        month="long"
+        day="numeric"
       />
     </span>
   </div>
@@ -22,10 +24,12 @@ const { title, description, heroImage, slug, pubDate } = Astro.props;
     heroImage && (
       <Image
         src={heroImage}
-        class="hero-image"
-        width={256}
+        class="hidden lg:block w-64 h-40 rounded-2xl object-cover flex-shrink-0"
+        width={360}
         alt={title}
-        loading={"eager"}
+        loading={index < 5 ? "eager" : "lazy"}
+        format={"avif"}
+        style=`view-transition-name: h${slug}`
       />
     )
   }

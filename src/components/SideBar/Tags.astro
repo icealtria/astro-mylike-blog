@@ -1,20 +1,17 @@
 ---
-import { getTagsInfo } from "@/scripts/tags";
+import { getTagsInfo } from "@/utils/tags";
 const tags = Array.from(getTagsInfo()).sort((a, b) => b[1] - a[1]);
 ---
 
 <div class="tags flex flex-wrap">
-  {
-    tags.map(([tag, count]) => (
-      <>
-        <a
-          class="tag"
-          href={`/tags/${tag}`}
-        >
-          {tag}
-        </a>
-        <span class="count hidden">{count}</span>
-      </>
-    ))
-  }
+    {
+        tags.map(([tag, count]) => (
+            <>
+                <a class="rounded-full py-1 px-2 tag" href={`/tags/${tag}`}>
+                    {tag}
+                </a>
+                <span class="hidden">{count}</span>
+            </>
+        ))
+    }
 </div>

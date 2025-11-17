@@ -4,7 +4,8 @@ import FormattedDate from "@components/FormattedDate.astro";
 import { SITE } from "@/consts";
 const article_url = new URL(SITE.url + "/blog/" + slug);
 ---
+
+<h1 class="mb-0" style=`view-transition-name: t${slug}`>{title}</h1>
 <div class="text-sm font-light mt-4">
-    <span>{author ? author : SITE.author}</span><br />
     <FormattedDate lang="ko-KR" date={pubDate} />
 </div>
