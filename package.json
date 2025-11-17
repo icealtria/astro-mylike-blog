@@ -19,7 +19,6 @@
     "@iconify-json/ri": "^1.2.5",
     "@unocss/reset": "^66.5.1",
     "astro": "^5.15.8",
-    "astro-d2": "^0.7.0",
     "astro-icon": "^1.1.5",
     "markdown-toc": "^1.2.0",
     "marked": "^10.0.0",

@@ -4,14 +4,12 @@ import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 import UnoCSS from "unocss/astro";
 
-import d2 from "astro-d2";
-
 import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://kururin.cc",
-  integrations: [mdx(), icon(), sitemap(), UnoCSS(), d2(), svelte()],
+  integrations: [mdx(), icon(), sitemap(), UnoCSS(), svelte()],
   markdown: {},
   output: "static",
   prefetch: true,
