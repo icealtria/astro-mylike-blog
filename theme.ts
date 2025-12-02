@@ -29,7 +29,7 @@ const AllMaterialDynamicColors = {
   "surface-container-lowest": MaterialDynamicColors.surfaceContainerLowest,
   // "surface-container-low": MaterialDynamicColors.surfaceContainerLow,
   "surface-container": MaterialDynamicColors.surfaceContainer,
-  // "surface-container-high": MaterialDynamicColors.surfaceContainerHigh,
+  "surface-container-high": MaterialDynamicColors.surfaceContainerHigh,
   "surface-container-highest": MaterialDynamicColors.surfaceContainerHighest,
   "on-surface": MaterialDynamicColors.onSurface,
   "on-surface-dim": MaterialDynamicColors.onSurface,

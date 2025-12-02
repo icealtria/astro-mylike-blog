@@ -23,15 +23,4 @@ const blog = defineCollection({
 	}),
 });
 
-const comments = defineCollection({
-	schema: z.object({
-		id: z.number(),
-		name: z.string(),
-		contact: z.string().optional(),
-		url: z.string().optional(),
-		date: z.coerce.date(),
-		replyTo: z.coerce.number().optional(),
-	})
-});
-
-export const collections = { blog, comments };
+export const collections = { blog };
