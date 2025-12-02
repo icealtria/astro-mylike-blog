@@ -4,11 +4,11 @@ import { Image } from "astro:assets";
 ---
 
 <a
-    class="bg-surface-container-lowest hover:bg-surface-container-lowest-hover shadow-md p-4 mx-auto rounded-2xl flex transition-colors w-full"
+    class="bg-surface-container-lowest dark:bg-surface-bright text-on-surface-container hover:bg-surface-bright/80 shadow-md p-4 mx-auto rounded-2xl flex transition-colors w-full"
     href={url}
 >
     <Image
-        class="w-24 h-24 rounded-full"
+        class="w-24 h-24 rounded-full bg-white"
         width="192"
         height="192"
         src={avatar}

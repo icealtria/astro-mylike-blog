@@ -20,14 +20,14 @@ export interface MaterialOptions {
 }
 
 const AllMaterialDynamicColors = {
-  // background: MaterialDynamicColors.background,
-  // "on-background": MaterialDynamicColors.onBackground,
+  background: MaterialDynamicColors.background,
+  "on-background": MaterialDynamicColors.onBackground,
 
   surface: MaterialDynamicColors.surface,
   "surface-dim": MaterialDynamicColors.surfaceDim,
   "surface-bright": MaterialDynamicColors.surfaceBright,
   "surface-container-lowest": MaterialDynamicColors.surfaceContainerLowest,
-  // "surface-container-low": MaterialDynamicColors.surfaceContainerLow,
+  "surface-container-low": MaterialDynamicColors.surfaceContainerLow,
   "surface-container": MaterialDynamicColors.surfaceContainer,
   "surface-container-high": MaterialDynamicColors.surfaceContainerHigh,
   "surface-container-highest": MaterialDynamicColors.surfaceContainerHighest,
@@ -35,22 +35,22 @@ const AllMaterialDynamicColors = {
   "on-surface-dim": MaterialDynamicColors.onSurface,
   "on-surface-bright": MaterialDynamicColors.onSurface,
   "on-surface-container-lowest": MaterialDynamicColors.onSurface,
-  // "on-surface-container-low": MaterialDynamicColors.onSurface,
-  // "on-surface-container": MaterialDynamicColors.onSurface,
-  // "on-surface-container-high": MaterialDynamicColors.onSurface,
+  "on-surface-container-low": MaterialDynamicColors.onSurface,
+  "on-surface-container": MaterialDynamicColors.onSurface,
+  "on-surface-container-high": MaterialDynamicColors.onSurface,
   "on-surface-container-highest": MaterialDynamicColors.onSurface,
 
   "surface-variant": MaterialDynamicColors.surfaceVariant,
   "on-surface-variant": MaterialDynamicColors.onSurfaceVariant,
 
-  // "inverse-surface": MaterialDynamicColors.inverseSurface,
-  // "on-inverse-surface": MaterialDynamicColors.inverseOnSurface,
+  "inverse-surface": MaterialDynamicColors.inverseSurface,
+  "on-inverse-surface": MaterialDynamicColors.inverseOnSurface,
 
-  // outline: MaterialDynamicColors.outline,
-  // "outline-variant": MaterialDynamicColors.outlineVariant,
+  outline: MaterialDynamicColors.outline,
+  "outline-variant": MaterialDynamicColors.outlineVariant,
 
-  // "surface-tint": MaterialDynamicColors.surfaceTint,
-  // "on-surface-tint": MaterialDynamicColors.onSurface,
+  "surface-tint": MaterialDynamicColors.surfaceTint,
+  "on-surface-tint": MaterialDynamicColors.onSurface,
 
   primary: MaterialDynamicColors.primary,
   "on-primary": MaterialDynamicColors.onPrimary,
