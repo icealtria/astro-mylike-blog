@@ -8,7 +8,7 @@ import Layout from "./Layout.astro";
 
 <Layout title={title} description={description} slug={slug}>
   <slot name="head" slot="name" />
-  <article class="prose dark:prose-invert mx-auto">
+  <article class="prose mx-auto">
     <h1 class="text-4xl">{title}</h1>
     <slot />
   </article>

@@ -11,16 +11,20 @@ html {
     @apply hover:bg-surface-container
 }
 
-h1, h2 , h3, h4, h5, h6 {
-    @apply text-on-surface-bright!;
+h1, h2, h3, h4, h5, h6 {
+    @apply text-on-surface-bright !;
 }
 
-.tags {
-    @apply flex text-sm gap-2 mb-8;
+.hero-image {
+    @apply w-full rounded-2xl shadow-md;
 }
 
-.tag {
-    @apply font-light rounded hover:bg-surface-variant-hover transition-colors;
+.article-tags {
+    @apply flex text-sm gap-2 mb-8 text-on-surface-bright;
+}
+
+.article-tag {
+    @apply font-light text-inherit rounded hover:bg-surface-variant-hover transition-colors;
 }
 
 li {

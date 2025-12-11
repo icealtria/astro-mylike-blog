@@ -2,11 +2,13 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import ArticleInfo from "@/components/ArticleInfo.astro";
 import ArticleTags from "@/components/ArticleTags.astro";
-import Layout from "@/layouts/Layout.astro";
+import Layout from "@/layouts/TwoCol.astro";
 import Licence from "@/components/License.astro";
 import { Image } from "astro:assets";
 import "@/styles/article.css";
 import Encrypt from "@/components/Encrypt.svelte";
+import ToC from "@/components/SideBar/ToC.astro";
+import HomeSideBar from "@/components/SideBar/HomeSideBar.astro";
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
 	return posts.map((post) => ({
@@ -29,7 +31,12 @@ description={description}
 ogimage={heroImage?.src}
 slug={post.slug}
 >
-	<main class="max-w-5xl mx-auto rounded-2xl bg-surface-bright">
+<div class="w-full md:max-w-2xs">
+	{headings.length > 0 ? (
+		<ToC headings={headings} className="sidebar-card sticky top-18" />
+	) : <HomeSideBar />}
+</div>
+	<main class="max-w-5xl mx-auto rounded-2xl w-full bg-surface-container-lowest">
 		{
 			heroImage && (
 				<Image
@@ -43,7 +50,7 @@ slug={post.slug}
 				/>
 			)
 		}
-		<article class="prose lg:prose-lg mx-auto mt-4 pb-12 text-on-surface-bright">
+		<article class="prose lg:prose-lg mx-auto my-8 text-on-surface-bright">
 			<div>
 				<ArticleInfo slug={post.slug} {...post.data} />
 				<ArticleTags tags={tags} />

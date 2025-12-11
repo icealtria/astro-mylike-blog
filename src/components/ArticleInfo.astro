@@ -5,7 +5,7 @@ import { SITE } from "@/consts";
 const article_url = new URL(SITE.url + "/blog/" + slug);
 ---
 
-<h1 class="mb-0" style=`view-transition-name: t${slug}`>{title}</h1>
+<h1 class="mb-0">{title}</h1>
 <div class="text-sm font-light mt-4">
     <FormattedDate lang="ko-KR" date={pubDate} />
 </div>

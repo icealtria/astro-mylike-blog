@@ -17,6 +17,7 @@ import type { Preset } from "@unocss/core";
 export interface MaterialOptions {
   primary: string;
   scheme: SchemeName;
+  darkMode?: boolean; // 新增选项
 }
 
 const AllMaterialDynamicColors = {
@@ -58,7 +59,7 @@ const AllMaterialDynamicColors = {
   "primary-container": MaterialDynamicColors.primaryContainer,
   "on-primary-container": MaterialDynamicColors.onPrimaryContainer,
 
-  // "inverse-primary": MaterialDynamicColors.inversePrimary,
+  "inverse-primary": MaterialDynamicColors.inversePrimary,
 
   secondary: MaterialDynamicColors.secondary,
   "on-secondary": MaterialDynamicColors.onSecondary,
@@ -109,54 +110,38 @@ function genHoverVar(name: string) {
 }
 
 export const presetMaterialColor = (opts: MaterialOptions): Preset => {
-  const { primary, scheme } = opts;
+  const { primary, scheme, darkMode = true } = opts;
   const source = argbFromHex(primary);
-  const lightScheme = genScheme(source, false, scheme);
-  const darkScheme = genScheme(source, true, scheme);
 
-  // light/dark vars
+  const lightScheme = genScheme(source, false, scheme);
+  const darkScheme = darkMode ? genScheme(source, true, scheme) : null;
+
+  // light variables
   const lightVars = Object.entries(AllMaterialDynamicColors)
     .map(([name, dyn]) => {
       const base = `--${name}: ${hexFromArgb(dyn.getArgb(lightScheme))};`;
-
-      // ❗ 不为 on-* 生成 hover
-      if (name.startsWith("on-")) {
-        return base;
-      }
-
-      const hover = genHoverVar(name);
-      return `${base}\n${hover}`;
+      if (name.startsWith("on-")) return base;
+      return `${base}\n${genHoverVar(name)}`;
     })
     .join("\n");
 
-  const darkVars = Object.entries(AllMaterialDynamicColors)
-    .map(([name, dyn]) => {
-      const base = `--${name}: ${hexFromArgb(dyn.getArgb(darkScheme))};`;
+  // dark variables (可选)
+  const darkVars = darkMode
+    ? Object.entries(AllMaterialDynamicColors)
+      .map(([name, dyn]) => {
+        const base = `--${name}: ${hexFromArgb(dyn.getArgb(darkScheme!))};`;
+        if (name.startsWith("on-")) return base;
+        return `${base}\n${genHoverVar(name)}`;
+      })
+      .join("\n")
+    : "";
 
-      // ❗ 不为 on-* 生成 hover
-      if (name.startsWith("on-")) {
-        return base;
-      }
-
-      const hover = genHoverVar(name);
-      return `${base}\n${hover}`;
-    })
-    .join("\n");
-
-
-  // theme.colors -> var(--xxx)
+  // colors
   const themeColors = Object.fromEntries(
     Object.keys(AllMaterialDynamicColors).flatMap((name) => {
       const entries: [string, string][] = [];
-
-      // base color
       entries.push([name, `var(--${name})`]);
-
-      // ❗ 不为 on-* 注册 hover token
-      if (!name.startsWith("on-")) {
-        entries.push([`${name}-hover`, `var(--${name}-hover)`]);
-      }
-
+      if (!name.startsWith("on-")) entries.push([`${name}-hover`, `var(--${name}-hover)`]);
       return entries;
     })
   );
@@ -168,16 +153,18 @@ export const presetMaterialColor = (opts: MaterialOptions): Preset => {
     },
     preflights: [
       {
-        getCSS: () => `
-:root {
-${lightVars}
-}
+        getCSS: () => {
+          let css = `:root {\n${lightVars}\n}`;
+          if (darkMode) {
+            css += `
 @media (prefers-color-scheme: dark) {
   :root {
 ${darkVars}
   }
-}
-        `,
+}`;
+          }
+          return css;
+        },
       },
     ],
   };

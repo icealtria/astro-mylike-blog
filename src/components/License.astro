@@ -62,7 +62,7 @@ function generateHtml(
   url: string | null,
 ) {
   if (!url) return description;
-  const link = `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline dark:text-blue-400">${license}</a>`;
+  const link = `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">${license}</a>`;
   return description.replace(license, link);
 }
 ---
