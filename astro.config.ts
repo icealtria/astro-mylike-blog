@@ -23,7 +23,8 @@ export default defineConfig({
           assetFileNames: "assets/[name][extname]",
         },
       },
-      cssMinify: "lightningcss"
+      cssMinify: "lightningcss",
+      cssCodeSplit: false,
     },
   },
 });

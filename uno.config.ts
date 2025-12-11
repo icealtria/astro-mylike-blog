@@ -1,7 +1,6 @@
 import { defineConfig, presetWind4, presetTypography } from "unocss";
 import transformerDirectives from "@unocss/transformer-directives";
 import { presetMaterialColor } from "./theme";
-import Inspector from "@unocss/inspector";
 
 export default defineConfig({
   presets: [
@@ -27,7 +26,4 @@ export default defineConfig({
       "px-4 py-2 rounded-3xl transition-colors mx-1 md:mx-4 flex items-center gap-1",
   },
   transformers: [transformerDirectives()],
-  tools: [
-    Inspector(),
-  ],
 });
