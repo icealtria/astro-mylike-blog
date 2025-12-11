@@ -39,7 +39,10 @@ import { SITE } from "@/consts";
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(20px) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.5);
-            @apply shadow-lg max-w-2xl;
+            box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            max-width: var(--container-5xl);
         }
     }
 
