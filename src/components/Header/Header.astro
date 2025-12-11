@@ -4,7 +4,7 @@ import { SITE } from "@/consts";
 ---
 
 <header
-    class="flex justify-between mx-auto sticky top-2 z-50 mb-8 rounded-full"
+    class="flex justify-center max-w-6xl md:justify-between mx-auto sticky top-0 md:top-2 z-50 mb-8 md:rounded-full"
     style={`view-transition-name: navbar;`}
 >
     <div class="blog-title">
@@ -18,7 +18,7 @@ import { SITE } from "@/consts";
         animation: shrink-title linear both;
         animation-timeline: scroll();
         animation-range: 0 150px;
-        @apply flex items-center px-4;
+        @apply hidden md:flex items-center px-4;
     }
 
     @keyframes shrink-title {
@@ -31,10 +31,6 @@ import { SITE } from "@/consts";
     }
 
     @keyframes shrink-header {
-        from {
-            max-width: 100%;
-            width: 100%;
-        }
         to {
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(20px) saturate(180%);
@@ -42,7 +38,7 @@ import { SITE } from "@/consts";
             box-shadow:
                 0 4px 6px -1px rgba(0, 0, 0, 0.1),
                 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            max-width: var(--container-5xl);
+            max-width: 48rem;
         }
     }
 
