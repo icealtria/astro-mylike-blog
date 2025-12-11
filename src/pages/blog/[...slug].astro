@@ -34,7 +34,9 @@ slug={post.slug}
 <div class="w-full md:max-w-2xs">
 	{headings.length > 0 ? (
 		<ToC headings={headings} className="sidebar-card sticky top-18" />
-	) : <HomeSideBar />}
+	) : <div class="sticky top-18">
+		<HomeSideBar />
+	</div>}
 </div>
 	<main class="max-w-5xl mx-auto rounded-2xl w-full bg-surface-container-lowest">
 		{

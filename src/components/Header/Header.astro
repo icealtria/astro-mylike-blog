@@ -1,10 +1,51 @@
 ---
 import NavBar from "./NavBar.astro";
+import { SITE } from "@/consts";
 ---
 
 <header
-    class="w-fit mx-auto rounded-full bg-surface-container-low"
+    class="flex justify-between mx-auto sticky top-2 z-50 mb-8 rounded-full"
     style={`view-transition-name: navbar;`}
 >
+    <div class="blog-title">
+        <a href="/">{SITE.title}</a>
+    </div>
     <NavBar />
 </header>
+
+<style>
+    .blog-title {
+        animation: shrink-title linear both;
+        animation-timeline: scroll();
+        animation-range: 0 150px;
+        @apply flex items-center px-4;
+    }
+
+    @keyframes shrink-title {
+        from {
+            @apply text-2xl;
+        }
+        to {
+            @apply text-base;
+        }
+    }
+
+    @keyframes shrink-header {
+        from {
+            max-width: 100%;
+            width: 100%;
+        }
+        to {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            @apply shadow-lg max-w-2xl;
+        }
+    }
+
+    header {
+        animation: shrink-header linear both;
+        animation-timeline: scroll();
+        animation-range: 0 150px;
+    }
+</style>

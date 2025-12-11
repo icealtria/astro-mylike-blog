@@ -3,7 +3,7 @@ import HeaderLink from "./HeaderLink.astro";
 import { SITE } from "@/consts";
 ---
 
-<nav class="navbar flex justify-center gap-1 my-4 relative">
+<nav class="navbar">
   <HeaderLink href="/" icon="ic:baseline-home">首页</HeaderLink>
   <HeaderLink href="/blog/" icon="ic:baseline-article">归档</HeaderLink>
   <HeaderLink href="/friends/" icon="ic:baseline-contacts">友链</HeaderLink>
@@ -12,59 +12,6 @@ import { SITE } from "@/consts";
 
 <style>
   .navbar {
-    position: relative;
-  }
-
-  .navbar::before {
-    content: "";
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 23%;
-    height: 34px;
-    border-radius: 9999px;
-    z-index: 0;
-    transition: transform 0.3s ease;
-    opacity: 0;
-    @apply bg-secondary-container/60 
-         backdrop-blur-md 
-         ring-1 ring-zinc-900/5;
-  }
-
-  .navbar a {
-    position: relative;
-  }
-
-  .navbar:has(a.active)::before {
-    opacity: 1;
-  }
-  Í .navbar:has(a:nth-child(1).active)::before {
-    transform: translateX(0%);
-  }
-  .navbar:has(a:nth-child(2).active)::before {
-    transform: translateX(109%);
-  }
-  .navbar:has(a:nth-child(3).active)::before {
-    transform: translateX(218%);
-  }
-  .navbar:has(a:nth-child(4).active)::before {
-    transform: translateX(327%);
-  }
-
-  .navbar:has(a:nth-child(1):hover)::before {
-    opacity: 1;
-    transform: translateX(0%);
-  }
-  .navbar:has(a:nth-child(2):hover)::before {
-    opacity: 1;
-    transform: translateX(109%);
-  }
-  .navbar:has(a:nth-child(3):hover)::before {
-    opacity: 1;
-    transform: translateX(218%);
-  }
-  .navbar:has(a:nth-child(4):hover)::before {
-    opacity: 1;
-    transform: translateX(327%);
+    @apply flex justify-center gap-1;
   }
 </style>

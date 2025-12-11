@@ -16,20 +16,33 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
   {...props}
   data-astro-prefetch
 >
-  {icon && <Icon name={icon} is:inline />}
   <slot />
 </a>
 
 <style>
   .header-link {
-    @apply m-0 rounded-full transition-colors text-on-surface;
+    @apply m-0 text-on-surface font-bold px-4 py-2 hover:text-primary;
+    position: relative;
   }
 
-  /* .header-link svg {
-    @apply sm:inline-block hidden;
-  } */
-
   .active {
-    @apply text-on-secondary-container;
+    color: var(--primary);
+  }
+
+  .active::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 4px);
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      var(--primary) 20%,
+      var(--primary) 40%,
+      transparent 100%
+    );
   }
 </style>
